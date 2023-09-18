@@ -1,0 +1,28 @@
+#Main
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #E6E6FA;
+   
+}
+#Register-Main
+{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#statsimg {
+    height: 100%;
+    opacity: 0.77;
+    transition: transform 0.4s ease, opacity 0.5s ease; 
+}
+
+#statsimg:hover {
+        opacity: 0.94;
+}
