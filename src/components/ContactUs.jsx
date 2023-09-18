@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button"
 import "../style/ContactUs.css";
 import NavBar from "./NavBar";
 
@@ -29,28 +30,33 @@ export default function ContactUs() {
       <div className="contact-us-container">
         <h2>Contact Us</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
-          <div>
-          <TextField 
+          <div className="text-field">
+            <TextField
               required
               label="Name"
-              sx={{backgroundColor: '#FFFFFF', borderRadius: '7%'}}
+              sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
             />
           </div>
-          <div>
-          <TextField 
+          <div className="text-field">
+            <TextField
               required
               label="Email"
-              sx={{backgroundColor: '#FFFFFF', borderRadius: '7%'}}
+              sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
             />
           </div>
-          <div>
-          <TextField 
+          <div className="text-field">
+            <TextField
               required
               label="Message"
-              sx={{backgroundColor: '#FFFFFF', borderRadius: '7%'}}
+              sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
             />
           </div>
-          <button type="submit">Submit</button>
+          <Button
+                type="submit"
+                sx={{ mt: 1, border: "2px solid" /* margin top */ }}
+              >
+                Submit
+              </Button>
         </form>
       </div>
     </div>
