@@ -39,6 +39,10 @@ light purple: #d0d0ff; */
     margin-right: 10px;
 }
 
+.about-us-first-right {
+    margin-left: 40px;
+}
+
 .about-us-second-inner {
     padding: 75px 60px;
 }
