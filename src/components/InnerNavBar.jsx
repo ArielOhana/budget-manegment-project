@@ -2,7 +2,7 @@ import "../style/InnerNavBar.css";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-export default function NavBar() {
+export default function InnerNavBar({children}) {
   return (
     <div className="navbar-container">
       <ul className="navbar">
@@ -17,15 +17,7 @@ export default function NavBar() {
           </Link>
         </div>
         <div className="navbar-right">
-          <li>
-            <NavLink to="/contact">Contact Us</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/register">Register</NavLink>
-          </li>
+        {children}
         </div>
       </ul>
     </div>
