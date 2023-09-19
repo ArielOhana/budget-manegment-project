@@ -1,12 +1,22 @@
 import React from "react";
 import "../style/MyPlan.css";
-import NavBar from "../components/NavBar";
-import { Link } from "react-router-dom";
+import InnerNavBar from "../components/InnerNavBar";
+import { Link, NavLink } from "react-router-dom";
 
 export default function MyPlan() {
   return (
     <div className="plans-container">
-      <NavBar />
+      <InnerNavBar>
+        <li>
+          <NavLink to="/editprofile">Edit Profile</NavLink>
+        </li>
+        <li>
+          <NavLink to="/plans">Plan Options</NavLink>
+        </li>
+        <li>
+          <NavLink to="/">Log Out</NavLink>
+        </li>
+      </InnerNavBar>
       <header>
         <h1>Our Plans</h1>
       </header>

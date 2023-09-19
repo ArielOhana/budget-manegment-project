@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../style/Payment.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "../components/NavBar";
-import { Link } from "react-router-dom";
+import InnerNavBar from "../components/InnerNavBar";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Payment() {
   const [creditCardNumber, setCreditCardNumber] = useState("");
@@ -34,7 +34,17 @@ export default function Payment() {
 
   return (
     <div>
-      <NavBar />
+      <InnerNavBar>
+        <li>
+          <NavLink to="/editprofile">Edit Profile</NavLink>
+        </li>
+        <li>
+          <NavLink to="/plans">Plan Options</NavLink>
+        </li>
+        <li>
+          <NavLink to="/">Log Out</NavLink>
+        </li>
+      </InnerNavBar>
       <div class="container">
         <h1>Payment</h1>
         <div class="row">
