@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [user, setUser] = React.useState({});
@@ -25,7 +26,7 @@ const Register = () => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
     const isExists = users.some(
-      (element) => element.FirstName === data.FirstName
+      (element) => element.UserName === data.UserName
     );
 
     if (isExists) {
@@ -62,18 +63,10 @@ const Register = () => {
               <h1 style={{ marginTop: "50px" }}>Register</h1>
               <TextField
                 required
-                id="FirstName"
-                label="First Name"
-                defaultValue={user.FirstName ? user.FirstName : ""}
-                {...register("FirstName")}
-                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
-              />
-              <TextField
-                required
-                id="LastName"
-                label="Last Name"
-                defaultValue={user.LastName ? user.LastName : ""}
-                {...register("LastName")}
+                id="UserName"
+                label="User Name"
+                defaultValue={user.UserName ? user.UserName : ""}
+                {...register("UserName")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
               <TextField
@@ -94,14 +87,23 @@ const Register = () => {
                 {...register("Password")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
-
-              <Button
-                type="submit"
-                sx={{ mt: 1, border: "2px solid" /* margin top */ }}
-              >
-                Sign Up
-              </Button>
-            </div>
+ <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
+                <Button variant="contained"
+                  type="submit"
+                  sx={{ mt: 1,  /* margin top */ }}
+                >
+                  Sign In
+                </Button>
+                <Link to="../login">    <Button
+                  type="submit"
+                  sx={{ mt: 1, border: "2px solid" /* margin top */ }}
+                >
+                  Back to login
+                </Button>
+                </Link>
+                </div>
+              </div>
+             
           </Box>
         </div>
         <img id="statsimg" src={statsimg} alt="No Image found" />
