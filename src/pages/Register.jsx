@@ -7,11 +7,10 @@ import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { UserContext } from "../App";
+import { useContext } from "react";
 const Register = () => {
-  const [user, setUser] = React.useState({});
-  const [flexDirection, setFlexDirection] = React.useState("row"); // Default value
-
+    const { user, setUser } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -20,8 +19,9 @@ const Register = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+    if(data.Password === data.ConfirmPassword) {
     data.setted = true;
-    setUser(data);
+   
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -32,16 +32,21 @@ const Register = () => {
     if (isExists) {
       alert("User already exists");
     } else {
+        setUser(data);
       users.push(data);
       localStorage.setItem("users", JSON.stringify(users));
       alert("User connected successfully");
-      setFlexDirection("row-reverse"); 
+      navigate("/editprofile")
     }
-  };
+  }
+  else{
+    alert("Please confirm password");
+  }
+};
 
   return (
     <>
-      <div id="Main" style={{ flexDirection: flexDirection }}>
+      <div id="Main">
         <div id="Register-Main">
           <Box
             component="form"
@@ -72,6 +77,7 @@ const Register = () => {
               <TextField
                 required
                 id="Email"
+                type="email"
                 label="Email"
                 defaultValue={user.Email ? user.Email : ""}
                 {...register("Email")}
@@ -87,24 +93,42 @@ const Register = () => {
                 {...register("Password")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
+              <TextField
+                required
+                id="Confirm-Password"
+                label="Confirm Password"
+                type="password"
+                {...register("ConfirmPassword")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
  <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
                 <Button variant="contained"
                   type="submit"
                   sx={{ mt: 1,  /* margin top */ }}
                 >
-                  Sign In
+                  Sign up
                 </Button>
-                <Link to="../login">    <Button
-                  type="submit"
-                  sx={{ mt: 1, border: "2px solid" /* margin top */ }}
-                >
-                  Back to login
-                </Button>
-                </Link>
+                
                 </div>
               </div>
              
           </Box>
+           <div className="back-div">
+            <Link to="../">    <Button
+                  type="submit"
+                  sx={{ mt: 1, border: "2px solid" /* margin top */ }}
+                >
+                  Home
+                </Button>
+                </Link>
+            <Link to="../login">    <Button
+                  type="submit"
+                  sx={{ mt: 1, border: "2px solid" /* margin top */ }}
+                >
+                  Back to Login
+                </Button>
+                </Link>
+            </div>
         </div>
         <img id="statsimg" src={statsimg} alt="No Image found" />
       </div>

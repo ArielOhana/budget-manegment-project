@@ -14,8 +14,10 @@
     width: 70%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
+    
 }
 #statsimg {
     height: 100%;
@@ -25,4 +27,14 @@
 
 #statsimg:hover {
         opacity: 0.94;
+}
+.back-div
+{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.back-div Button
+{
+    min-width: 100px
 }
