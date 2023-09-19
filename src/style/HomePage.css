@@ -16,7 +16,7 @@ light purple: #d0d0ff; */
 .about-us-first-wrapper h1 {
   font-size: 36px;
   margin-bottom: 50px;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
 }
 
 .about-us-first-wrapper p {
@@ -29,13 +29,13 @@ light purple: #d0d0ff; */
   transform: translateY(-150%);
   animation: slideFromTop 2s ease forwards;
   opacity: 0;
-  color:#720e9e;
+  color: #720e9e;
 }
 
 @keyframes slideFromTop {
   0% {
     transform: translateY(-150%);
-    opacity: .7;
+    opacity: 0.7;
   }
   100% {
     transform: translateY(0);
@@ -46,9 +46,9 @@ light purple: #d0d0ff; */
 .letter-animation-from-bottom {
   display: inline-block;
   transform: translateY(140%);
-  animation: slideFromBottom 1.5s ease forwards .5s;
+  animation: slideFromBottom 1.5s ease forwards 0.5s;
   opacity: 0;
-  color:#720e9e;
+  color: #720e9e;
 }
 
 @keyframes slideFromBottom {
@@ -127,18 +127,23 @@ light purple: #d0d0ff; */
 
 .about-us-second-inner {
   padding: 75px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .about-us-second-inner h1 {
   color: #720e9e;
   font-weight: bold;
   font-size: 36px;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
+  padding: 10px 0;
 }
 
 .about-us-second-inner p {
   color: #000;
   font-size: 18px;
+  padding: 10px 0;
 }
 
 .about-us-third-top {
@@ -164,7 +169,7 @@ light purple: #d0d0ff; */
 .third-bottom-left h1 {
   color: #720e9e;
   font-size: 36px;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
 }
 
 .third-top-right p,
