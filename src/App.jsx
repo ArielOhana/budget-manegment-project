@@ -13,6 +13,8 @@ import EditProfile from "./pages/EditProfile";
 import NoPage from "./pages/NoPage";
 import Payment from "./pages/Payment";
 import MyPlan from "./pages/MyPlan";
+import NoPage from "./pages/NoPage";
+
 
 function App() {
   const [user,setUser] = useState({})
