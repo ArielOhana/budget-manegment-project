@@ -116,7 +116,7 @@ const EditProfile = () => {
               <TextField
                 required
                 id="Email"
-                type="email"
+                type="text"
                 label="Email"
                 disabled={true}
 
