@@ -9,7 +9,7 @@ light purple: #d0d0ff; */
 .about-us-first-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 400px;
+  height: 500px;
   padding: 50px 25px;
 }
 

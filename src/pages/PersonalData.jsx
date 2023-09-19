@@ -1,10 +1,8 @@
 import { UserContext } from "../App";
-import { useContext, useEffect, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import InnerNavBar from "../components/InnerNavBar";
-import { Link, NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const PersonalData = () => {
   const navigate = useNavigate();
