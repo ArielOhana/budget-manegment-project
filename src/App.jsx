@@ -10,6 +10,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PersonalData from "./pages/PersonalData";
 import EditProfile from "./pages/EditProfile";
+import { createContext, useState } from "react";
+import NoPage from "./pages/NoPage";
+export const UserContext = createContext();
 import Payment from "./pages/Payment";
 import MyPlan from "./pages/MyPlan";
 
@@ -25,6 +28,7 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/personaldata" element={<PersonalData />}></Route>
         <Route path="/editprofile" element={<EditProfile />}></Route>
+        <Route path="*" element={<NoPage />}></Route>
         <Route path="/payment" element={<Payment />} />
         <Route path="/plans" element={<MyPlan />} />
       </Routes>
