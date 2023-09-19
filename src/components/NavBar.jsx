@@ -1,15 +1,20 @@
 import "../style/NavBar.css";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <div className="navbar-container">
       <ul className="navbar">
         <div className="navbar-left">
-          <NavLink to="/">
-            <img src="/images/navbar-icon.png" alt="Navbar icon" />
-          </NavLink>
+          <Link to="/">
+            <div className="navbar-left-img">
+              <img src="/images/navbar-icon.png" alt="Navbar icon" />
+            </div>
+            <div className="navbar-left-title">
+              <h2>BudgetBuddy</h2>
+            </div>
+          </Link>
         </div>
         <div className="navbar-right">
           <li>

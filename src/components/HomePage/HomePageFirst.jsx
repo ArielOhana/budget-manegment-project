@@ -3,7 +3,7 @@ import React from "react";
 export default function HomePageFirst() {
   return (
     <div className="about-us-first-wrapper">
-      <div className="about-us-first-left">
+      <div className="about-us-first-left" >
         <h1>
           Learn why over 50% of the country is making the switch to BudgetBuddy
         </h1>

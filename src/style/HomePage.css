@@ -4,6 +4,8 @@ white: #fff;
 dark purple: #720e9e;
 light purple: #d0d0ff; */
 
+/* font-family: 'Merriweather', serif; */
+
 .about-us-first-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14,6 +16,7 @@ light purple: #d0d0ff; */
 .about-us-first-wrapper h1 {
   font-size: 36px;
   margin-bottom: 50px;
+  font-family: 'Merriweather', serif;
 }
 
 .about-us-first-wrapper p {
@@ -39,6 +42,47 @@ light purple: #d0d0ff; */
   margin-right: 10px;
 }
 
+.custom-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.custom-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  transform: translateX(100%);
+  animation: slideIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.custom-list li:nth-child(1) {
+  animation: slideIn 0.5s ease forwards 1s;
+}
+
+.custom-list li:nth-child(2) {
+  animation: slideIn 0.5s ease forwards 2s;
+}
+
+.custom-list li:nth-child(3) {
+  animation: slideIn 0.5s ease forwards 3s;
+}
+
+.custom-list li:nth-child(4) {
+  animation: slideIn 0.5s ease forwards 4s;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .about-us-first-right {
   margin-left: 40px;
 }
@@ -51,6 +95,7 @@ light purple: #d0d0ff; */
   color: #720e9e;
   font-weight: bold;
   font-size: 36px;
+  font-family: 'Merriweather', serif;
 }
 
 .about-us-second-inner p {
@@ -59,7 +104,7 @@ light purple: #d0d0ff; */
 }
 
 .about-us-third-top {
-    margin-top: 75px;
+  margin-top: 75px;
 }
 
 .about-us-third-top,
@@ -68,6 +113,8 @@ light purple: #d0d0ff; */
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .third-top-left,
@@ -75,9 +122,11 @@ light purple: #d0d0ff; */
   margin: 75px auto;
 }
 
-.third-top-right h1 {
+.third-top-right h1,
+.third-bottom-left h1 {
   color: #720e9e;
   font-size: 36px;
+  font-family: 'Merriweather', serif;
 }
 
 .third-top-right p,
@@ -88,11 +137,18 @@ light purple: #d0d0ff; */
   line-height: 2rem;
 }
 
-.third-bottom-left h1 {
-  color: #720e9e;
-  font-size: 36px;
+.third-bottom-left {
+  margin-left: 75px;
 }
 
-.third-bottom-left {
-    margin-left: 75px;
+.about-us-third-top.appear {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-us-third-bottom.appear {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
 }

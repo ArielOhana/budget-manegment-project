@@ -1,12 +1,26 @@
 import React from "react";
+import { useInView } from "react-intersection-observer";
 import manWorking from "../../../images/man-working.jpg";
-import familyPlaying from "../../../images/quality-family-time.jpg"
+import familyPlaying from "../../../images/quality-family-time.jpg";
 import "../../style/HomePage.css";
 
 export default function HomePageThird() {
+  const [leftRef, leftInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [rightRef, rightInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.6,
+  });
+
   return (
     <div className="about-us-third-wrapper">
-      <div className="about-us-third-top">
+      <div
+        className={`about-us-third-top ${leftInView ? "appear" : "exit"}`}
+        ref={leftRef}
+      >
         <div className="third-top-left">
           <img src={manWorking} style={{ width: "600px", height: "400px" }} />
         </div>
@@ -23,20 +37,26 @@ export default function HomePageThird() {
           </p>
         </div>
       </div>
-      <div className="about-us-third-bottom">
+      <div
+        className={`about-us-third-bottom ${rightInView ? "appear" : "exit"}`}
+        ref={rightRef}
+      >
         <div className="third-bottom-left">
           <h1>Avoid Common Expatriate Financial Mistakes</h1>
           <p>
-            At Creative Planning International, we help expats navigate complex
-            U.S. tax laws, including implications of the Foreign Account Tax
-            Compliance Act (FATCA), reporting of foreign investment income and
-            filing of tax treaty claims. Our expat tax advisors can help ensure
-            you’re in compliance with U.S. tax law — freeing up more time for
-            you to enjoy the adventure of living abroad.
+            At BudgetBuddy, we help expats navigate complex U.S. tax laws,
+            including implications of the Foreign Account Tax Compliance Act
+            (FATCA), reporting of foreign investment income and filing of tax
+            treaty claims. Our expat tax advisors can help ensure you’re in
+            compliance with U.S. tax law — freeing up more time for you to enjoy
+            the adventure of living abroad.
           </p>
         </div>
         <div className="third-bottom-right">
-          <img src={familyPlaying} style={{ width: "600px", height: "400px" }} />
+          <img
+            src={familyPlaying}
+            style={{ width: "600px", height: "400px" }}
+          />
         </div>
       </div>
     </div>

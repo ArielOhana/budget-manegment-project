@@ -6,6 +6,7 @@ import "../style/HomePage.css";
 import HomePageFirst from "../components/HomePage/HomePageFirst";
 import HomePageSecond from "../components/HomePage/HomePageSecond";
 import HomePageThird from "../components/HomePage/HomePageThird";
+import Footer from "../components/Footer";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <HomePageFirst />
       <HomePageSecond />
       <HomePageThird />
+      <Footer />
     </div>
   );
 }
