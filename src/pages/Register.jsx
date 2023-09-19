@@ -34,7 +34,7 @@ const Register = () => {
       users.push(data);
       localStorage.setItem("users", JSON.stringify(users));
       alert("User connected successfully");
-      setFlexDirection("row-reverse"); // Update flex direction
+      setFlexDirection("row-reverse"); 
     }
   };
 

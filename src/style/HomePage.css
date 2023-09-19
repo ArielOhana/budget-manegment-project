@@ -5,55 +5,94 @@ dark purple: #720e9e;
 light purple: #d0d0ff; */
 
 .about-us-first-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 400px;
-    padding: 50px 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 400px;
+  padding: 50px 25px;
 }
 
 .about-us-first-wrapper h1 {
-    font-size: 36px;
-    margin-bottom: 50px;
+  font-size: 36px;
+  margin-bottom: 50px;
 }
 
 .about-us-first-wrapper p {
-    font-size: 18px;
-    line-height: 2rem;
+  font-size: 18px;
+  line-height: 2rem;
 }
 
 .about-us-second-wrapper {
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(190, 190, 190, 0.5);
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(190, 190, 190, 0.5);
 }
 
 .about-us-first-right li {
-    list-style: none;
-    padding: 10px 0;
-    font-size: 18px;
+  list-style: none;
+  padding: 10px 0;
+  font-size: 18px;
 }
 
 .about-us-first-right li::before {
-    content: "✔";
-    color: green;
-    margin-right: 10px;
+  content: "✔";
+  color: green;
+  margin-right: 10px;
 }
 
 .about-us-first-right {
-    margin-left: 40px;
+  margin-left: 40px;
 }
 
 .about-us-second-inner {
-    padding: 75px 60px;
+  padding: 75px 60px;
 }
 
 .about-us-second-inner h1 {
-    color: #720e9e;
-    font-weight: bold;
-    font-size: 36px;
+  color: #720e9e;
+  font-weight: bold;
+  font-size: 36px;
 }
 
 .about-us-second-inner p {
-    color: #000;
-    font-size: 18px;
+  color: #000;
+  font-size: 18px;
+}
+
+.about-us-third-top {
+    margin-top: 75px;
+}
+
+.about-us-third-top,
+.about-us-third-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.third-top-left,
+.third-bottom-right {
+  margin: 75px auto;
+}
+
+.third-top-right h1 {
+  color: #720e9e;
+  font-size: 36px;
+}
+
+.third-top-right p,
+.third-bottom-left p {
+  color: #000;
+  font-size: 18px;
+  margin-right: 30px;
+  line-height: 2rem;
+}
+
+.third-bottom-left h1 {
+  color: #720e9e;
+  font-size: 36px;
+}
+
+.third-bottom-left {
+    margin-left: 75px;
 }
