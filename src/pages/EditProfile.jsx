@@ -43,6 +43,7 @@ const EditProfile = () => {
         </li>
       </InnerNavBar>
       <h1>Edit Profile</h1>
+      <div className="All-div">
       <div className="UnChangeable-div">
       <Box
             component="form"
@@ -93,6 +94,49 @@ const EditProfile = () => {
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
  <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
+                </div>
+              </div>
+              <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+              }}  >
+              <TextField
+                required
+                id="Name"
+                label="Name"
+                disabled={true}
+                defaultValue={user.Name ? user.Name : ""}
+                {...register("Name")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+              <TextField
+                required
+                id="Email"
+                type="email"
+                label="Email"
+                disabled={true}
+
+                defaultValue={user.Email ? user.Email : ""}
+                {...register("Email")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+              <TextField
+                required
+                id="Password"
+                label="Password"
+                type="text"
+                disabled={true}
+
+                autoComplete="current-password"
+                defaultValue={user.Password ? user.Password : ""}
+                {...register("Password")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+ <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
                 <Button variant="contained"
                   type="submit"
                   sx={{ mt: 1,  /* margin top */ }}
@@ -104,6 +148,7 @@ const EditProfile = () => {
               </div>
              
           </Box>
+          </div>
       </div>
     </>
   );
