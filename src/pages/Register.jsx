@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserContext } from "../App";
 import { useContext } from "react";
+
+
 const Register = () => {
     const { user, setUser } = useContext(UserContext);
   const {

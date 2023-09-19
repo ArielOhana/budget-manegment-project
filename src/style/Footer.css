@@ -82,3 +82,8 @@
   font-size: 18px;
   line-height: 2;
 }
+
+.footer-top-left a {
+  text-decoration: none;
+  color: #fff;
+}

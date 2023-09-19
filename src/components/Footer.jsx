@@ -13,13 +13,15 @@ export default function Footer() {
     <div className="footer-container">
       <div className="footer-top">
         <div className="footer-top-left">
-          <div className="title">
-            <img src={appLogo} style={{ width: "50px", height: "50px" }} />
-            <h2>BudgetBuddy</h2>
-          </div>
+          <a href="#">
+            <div className="title">
+              <img src={appLogo} style={{ width: "50px", height: "50px" }} />
+              <h2>BudgetBuddy</h2>
+            </div>
+          </a>
           <p>
-            Could your money be working harder for you? <br /> There’s a richer way to
-            wealth.
+            Could your money be working harder for you? <br /> There’s a richer
+            way to wealth.
           </p>
         </div>
         <div className="footer-top-right">
