@@ -1,21 +1,20 @@
 import { UserContext } from "../App";
 import { useContext, useEffect } from "react";
-import InnerNavBar from "../components/InnerNavBar";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import InnerNavBar from "../components/InnerNavBar";
 
 const PersonalData = () => {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext); // Retrieve context data here
+  const { user, setUser } = useContext(UserContext); 
 
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
     } else {
-      // If the user is logged in, you can perform actions here
       console.log("User is logged in:", user);
     }
-  }, [user, navigate]); // Include user and navigate in the dependency array
+  }, [user, navigate]); 
 
   return (
     <>
