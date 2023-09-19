@@ -3,9 +3,11 @@ import React from "react";
 export default function HomePageFirst() {
   return (
     <div className="about-us-first-wrapper">
-      <div className="about-us-first-left" >
+      <div className="about-us-first-left">
         <h1>
-          Learn why over 50% of the country is making the switch to BudgetBuddy
+          Learn why over <span className="letter-animation-from-top">50%</span>{" "}
+          of the country is making the switch to {" "}
+          <span className="letter-animation-from-bottom">BudgetBuddy</span>
         </h1>
         <p>
           At BudgetBuddy, we have decades of experience providing comprehensive

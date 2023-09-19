@@ -18,9 +18,24 @@ export default function Footer() {
             <h2>BudgetBuddy</h2>
           </div>
           <p>
-            Could your money be working harder for you? There’s a richer way to
-            wealth. Contact our team today.
+            Could your money be working harder for you? <br /> There’s a richer way to
+            wealth.
           </p>
+        </div>
+        <div className="footer-top-right">
+          <div className="top-right-policies">
+            <h2>Policies</h2>
+            <p>Privacy Policy</p>
+            <p>GDPR Policy</p>
+            <p>Cookie Policy</p>
+          </div>
+          <div className="top-right-random">
+            <p>Career</p>
+            <p>Blog</p>
+            <p>Portfolio</p>
+            <p>Support</p>
+            <p>Our Team</p>
+          </div>
         </div>
       </div>
       <hr />
