@@ -6,7 +6,6 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
-import "../style/EditProfile.css"
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -17,6 +16,7 @@ const EditProfile = () => {
       navigate("/error");
     }
   }, [user, navigate]);
+
   const {
     register,
     handleSubmit,
@@ -28,6 +28,7 @@ const EditProfile = () => {
     setUser({ ...user, ...data });
     UpdateLocalStorage({ ...user, ...data });
   };
+
   const UpdateLocalStorage = (element) => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
     const targetIndex = users.findIndex(
@@ -36,6 +37,7 @@ const EditProfile = () => {
     users[targetIndex] = element;
     localStorage.setItem("users", JSON.stringify(users));
   };
+
   return (
     <>
       <InnerNavBar>
@@ -60,7 +62,7 @@ const EditProfile = () => {
             "& .MuiTextField-root": { m: 1, width: "25ch" },
           }}
           autoComplete="off"
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit)} 
         >
           <div
             className="UnChangeable-div"
@@ -151,16 +153,13 @@ const EditProfile = () => {
               width: "100%",
             }}
           >
-            <Link to="/personaldata">
-              <Button
-                variant="contained"
-                type="submit"
-                sx={{ mt: 1 /* margin top */ }}
-                onClick={onSubmit}
-              >
-                Save
-              </Button>
-            </Link>
+            <Button
+              variant="contained"
+              type="submit"
+              sx={{ mt: 1 /* margin top */ }}
+            >
+              Save
+            </Button>
           </div>
         </Box>
       </div>

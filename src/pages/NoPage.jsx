@@ -1,20 +1,16 @@
 import InnerNavBar from "../components/InnerNavBar";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NoPage = () => {
-      return(
-          <>
-          <InnerNavBar>
+  return (
+    <>
+      <InnerNavBar>
         <li>
-        <NavLink to="/">Log out</NavLink>
+          <NavLink to="/">Back Home</NavLink>
         </li>
-         </InnerNavBar>
-         <div style={{display:'flex',flexDirection:'column', justifyContent:'center',alignItems:'center', width:'100vw',height:'80vh'}}>
-            <h1 style={{fontSize:'8rem'}}>404</h1>
-            <h4 style={{fontSize:'3rem'}}>What you trying to do? go back.</h4>
-            </div>
-          
-          </>
-    )
-}
+      </InnerNavBar>
+      
+    </>
+  );
+};
 export default NoPage;
