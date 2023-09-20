@@ -1,22 +1,22 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "../style/Payment.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import InnerNavBar from "../components/InnerNavBar";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../App";
 
-export default function Payment() {
+export default function Payment({ price }) {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext); // Retrieve context data here
- 
+  const location = useLocation();
 
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
-    } 
+    }
   }, [user, navigate]);
-  
+
   const [creditCardNumber, setCreditCardNumber] = useState("");
   const [isValidCreditCard, setIsValidCreditCard] = useState(true);
   const [cvvCode, setCvvCode] = useState("");
@@ -46,7 +46,7 @@ export default function Payment() {
 
   return (
     <div>
-        <InnerNavBar>
+      <InnerNavBar>
         <li>
           <NavLink to="/editprofile">Edit Profile</NavLink>
         </li>
@@ -241,15 +241,16 @@ export default function Payment() {
               <div class="p-3 bg-light bg-opacity-10">
                 <h6 class="card-title mb-3">Order Summary</h6>
                 <div class="d-flex justify-content-between mb-1 small">
-                  <span>Subtotal</span> <span>$214.50</span>
+                  <span>Subtotal</span> <span>$ {location.state.price}</span>
                 </div>
                 <div class="d-flex justify-content-between mb-1 small">
                   <span>Coupon (Code: AB2023)</span>{" "}
-                  <span class="text-danger">-$10.00</span>
+                  <span class="text-danger">-$4.99</span>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between mb-4 small">
-                  <span>TOTAL</span> <strong class="text-dark">$224.50</strong>
+                  <span>TOTAL</span>{" "}
+                  <strong class="text-dark">$ {location.state.price-4.99}</strong>
                 </div>
                 <div class="form-check mb-1 small">
                   <input

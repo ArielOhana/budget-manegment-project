@@ -9,31 +9,32 @@ import { useForm } from "react-hook-form";
 
 const EditProfile = () => {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext); // Retrieve context data here
- 
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
-    } 
-  }, [user, navigate]); // Include user and navigate in the dependency array
+    }
+  }, [user, navigate]);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+
   const onSubmit = (data) => {
-    alert("Saved!")
-    setUser({...user, ...data})
-    UpdateLocalStorage({...user, ...data})
-  }
-  const UpdateLocalStorage = (element) =>{
+    alert("User Information Saved");
+    setUser({ ...user, ...data });
+    UpdateLocalStorage({ ...user, ...data });
+  };
+  const UpdateLocalStorage = (element) => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    const targetIndex = users.findIndex((user) => user.UserName === element.UserName);
+    const targetIndex = users.findIndex(
+      (user) => user.UserName === element.UserName
+    );
     users[targetIndex] = element;
     localStorage.setItem("users", JSON.stringify(users));
-  }
+  };
   return (
     <>
       <InnerNavBar>
@@ -47,30 +48,36 @@ const EditProfile = () => {
           <NavLink to="/">Log out</NavLink>
         </li>
       </InnerNavBar>
-      <h1 style={{display:'flex',width:'100vw', justifyContent:'center'}}>Edit Profile</h1><br />
+      <h1 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>
+        Edit Profile
+      </h1>
+      <br />
       <div className="All-div">
-     
-      <Box
-            component="form"
-            sx={{
-              "& .MuiTextField-root": { m: 1, width: "25ch" },
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+          }}
+          autoComplete="off"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div
+            className="UnChangeable-div"
+            style={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "center",
             }}
-            autoComplete="off"
-            onSubmit={handleSubmit(onSubmit)}
           >
-             <div className="UnChangeable-div" style={{
-                display: "flex",
-                width: "100%",
-                justifyContent: "center"}}>
-         
-              <div
+            <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 width: "40%",
                 justifyContent: "center",
                 alignItems: "center",
-              }}  >
+              }}
+            >
               <TextField
                 required
                 id="adress"
@@ -97,18 +104,16 @@ const EditProfile = () => {
                 {...register("phoneNumber")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
-
-
- 
-              </div>
-              <div
+            </div>
+            <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 width: "40%",
                 justifyContent: "center",
                 alignItems: "center",
-              }}  >
+              }}
+            >
               <TextField
                 required
                 id="UserName"
@@ -123,7 +128,6 @@ const EditProfile = () => {
                 type="email"
                 label="Email"
                 disabled={true}
-
                 defaultValue={user.Email ? user.Email : ""}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
@@ -133,24 +137,31 @@ const EditProfile = () => {
                 label="Password"
                 type="text"
                 disabled={true}
-
                 autoComplete="current-password"
                 defaultValue={user.Password ? user.Password : ""}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
-              </div>
-              </div>
-              <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
-                <Button variant="contained"
-                  type="submit"
-                  sx={{ mt: 1,  /* margin top */ }}
-                >
-                  Save
-                </Button>
-                
-                </div>
-          </Box>
-         
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              width: "100%",
+            }}
+          >
+            <Link to="/personaldata">
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{ mt: 1 /* margin top */ }}
+                onClick={onSubmit}
+              >
+                Save
+              </Button>
+            </Link>
+          </div>
+        </Box>
       </div>
     </>
   );

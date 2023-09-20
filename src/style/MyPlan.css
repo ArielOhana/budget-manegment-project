@@ -10,8 +10,8 @@
 }
 
 body {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overflow-y: scroll;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
@@ -19,18 +19,16 @@ body {
   background-image: url("images/bg-top.svg"), url("images/bg-bottom.svg");
   background-repeat: no-repeat, no-repeat;
   background-size: 26.5%, 26.5%;
-  background-position:
-    top 0 right -1rem,
-    bottom -4.7rem left -1.9rem;
+  background-position: top 0 right -1rem, bottom -4.7rem left -1.9rem;
 }
 
 body::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .pricing-container a {
-    display: flex;
-    text-decoration: none;
+  display: flex;
+  text-decoration: none;
 }
 
 h1 {
@@ -192,6 +190,10 @@ hr {
   transition: color ease-in-out 0.3s;
 }
 
+h3 {
+  font-size: 1rem;
+}
+
 @media (hover: hover) {
   .container-1 button:hover,
   .container-3 button:hover {
@@ -215,7 +217,7 @@ hr {
   .pricing-container {
     width: 50%;
     grid-template-columns: 1fr;
-    margin-top: 5.8rem;
+    margin-top: 3rem;
     gap: 5rem;
   }
 
@@ -223,15 +225,12 @@ hr {
     margin-top: initial;
     margin-bottom: initial;
   }
-
 }
 
 @media screen and (max-width: 800px) {
   body {
     background-size: 80%, 26.5%;
-    background-position:
-      top 0 right -10rem,
-      bottom -4.7rem left -1.9rem;
+    background-position: top 0 right -10rem, bottom -4.7rem left -1.9rem;
   }
   .pricing-container {
     width: 60%;
