@@ -13,6 +13,7 @@ import EditProfile from "./pages/EditProfile";
 import NoPage from "./pages/NoPage";
 import Payment from "./pages/Payment";
 import MyPlan from "./pages/MyPlan";
+import BudgetInfo from "./pages/BudgetInfo";
 
 function App() {
   const [user, setUser] = useState({});
@@ -28,7 +29,9 @@ function App() {
           <Route path="/editprofile" element={<EditProfile />}></Route>
           <Route path="/payment" element={<Payment />} />
           <Route path="/plans" element={<MyPlan />} />
-          <Route path="*" element={<NoPage />} />
+          <Route path="/budgetinfo" element={<BudgetInfo />} />
+
+        <Route path="*" element={<NoPage />} />
         </Routes>
       </UserContext.Provider>
     </div>

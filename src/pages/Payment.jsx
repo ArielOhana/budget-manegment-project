@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import "../style/Payment.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import InnerNavBar from "../components/InnerNavBar";
-import { Link, NavLink } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
 
 export default function Payment() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext); // Retrieve context data here
+ 
+
+  useEffect(() => {
+    if (!user.UserName) {
+      navigate("/error");
+    } 
+  }, [user, navigate]);
+  
   const [creditCardNumber, setCreditCardNumber] = useState("");
   const [isValidCreditCard, setIsValidCreditCard] = useState(true);
   const [cvvCode, setCvvCode] = useState("");
@@ -34,17 +44,7 @@ export default function Payment() {
 
   return (
     <div>
-      <InnerNavBar>
-        <li>
-          <NavLink to="/editprofile">Edit Profile</NavLink>
-        </li>
-        <li>
-          <NavLink to="/plans">Plan Options</NavLink>
-        </li>
-        <li>
-          <NavLink to="/">Log Out</NavLink>
-        </li>
-      </InnerNavBar>
+      <NavBar />
       <div class="container">
         <h1>Payment</h1>
         <div class="row">

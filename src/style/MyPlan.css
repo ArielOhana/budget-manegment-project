@@ -2,13 +2,6 @@
 
 :root {
   --gradient: #c13afa, #720e9e;
-  --purple: #720e9e;
-  --very-light-grayish-blue: hsl(240, 78%, 98%);
-  --light-grayish-blue: hsl(234, 14%, 74%);
-  --dark-grayish-blue: hsl(232, 13%, 33%);
-  --white: white;
-  --body-font: "Montserrat", sans-serif;
-  --transition: all ease-in-out 0.3s;
 }
 
 * {
@@ -21,8 +14,8 @@ body {
   scrollbar-width: none; 
   overflow-y: scroll;
   box-sizing: border-box;
-  font-family: var(--body-font);
-  background-color: var(--very-light-grayish-blue);
+  font-family: "Montserrat", sans-serif;
+  background-color: hsl(240, 78%, 98%);
   background-image: url("images/bg-top.svg"), url("images/bg-bottom.svg");
   background-repeat: no-repeat, no-repeat;
   background-size: 26.5%, 26.5%;
@@ -44,7 +37,7 @@ h1 {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-top: 30px;
+  margin-top: 1rem;
 }
 
 header {
@@ -74,7 +67,7 @@ header {
   height: 1.7rem;
   margin: 5%;
   border-radius: 50%;
-  background-color: var(--very-light-grayish-blue);
+  background-color: hsl(240, 78%, 98%);
 }
 
 .toggle-area.monthly {
@@ -88,7 +81,7 @@ header {
 }
 
 .toggle-section p {
-  color: var(--light-grayish-blue);
+  color: hsl(234, 14%, 74%);
 }
 
 .pricing-container {
@@ -96,7 +89,7 @@ header {
   width: 72%;
   grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 2rem;
   max-width: 1440px;
 }
 
@@ -110,43 +103,45 @@ header {
 
 .container-2 {
   background: linear-gradient(var(--gradient));
-  color: var(--white);
-  margin-top: -1.6rem;
-  margin-bottom: -1.6rem;
+  color: #fff;
+  margin-top: -1.3rem;
+  margin-bottom: -1.3rem;
   padding: 3rem 1rem;
 }
 .container-1,
 .container-3 {
-  background-color: var(--white);
+  background-color: #fff;
   gap: 1.3rem;
 }
 
 .pricing h2 {
   font-size: 1.23rem;
   font-weight: 700;
+  display: flex;
+  justify-content: center;
 }
 
 .container-1 h2,
 .container-1 li,
 .container-3 h2,
 .container-3 li {
-  color: var(--light-grayish-blue);
+  color: hsl(234, 14%, 74%);
 }
 .pricing p {
   display: flex;
   align-items: center;
   gap: 6px;
   margin: 0 auto;
-  font-size: 4.6rem;
+  font-size: 2.5rem;
 }
 
 .dollar-sign {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 .container-1 p,
 .container-3 p {
-  color: var(--dark-grayish-blue);
+  color: hsl(232, 13%, 33%);
 }
 
 hr {
@@ -154,7 +149,7 @@ hr {
   border-width: 0.5px;
   margin: 0 auto;
   border-color: transparent;
-  border-color: var(--light-grayish-blue);
+  border-color: hsl(234, 14%, 74%);
   border-style: solid;
   opacity: 0.5;
 }
@@ -164,14 +159,13 @@ hr {
 }
 
 .pricing ul li {
-  padding: 1.06rem;
+  padding: 1rem;
 }
 
 .pricing button {
   cursor: pointer;
   width: 90%;
   margin: 0 auto;
-  margin-top: 1rem;
   border-radius: 5px;
   border-color: transparent;
   border-style: solid;
@@ -185,13 +179,13 @@ hr {
 }
 
 .container-2 button {
-  color: var(--purple);
-  background-color: var(--white);
-  transition: var(--transition);
+  color: #720e9e;
+  background-color: #fff;
+  transition: all ease-in-out 0.3s;
 }
 .container-1 button,
 .container-3 button {
-  color: var(--white);
+  color: #fff;
   background: linear-gradient(var(--gradient));
   background-repeat: no-repeat;
   transition: background ease-in-out 0.3s;
@@ -202,18 +196,18 @@ hr {
   .container-1 button:hover,
   .container-3 button:hover {
     background: transparent;
-    border-color: var(--light-grayish-blue);
-    color: var(--purple);
+    border-color: hsl(234, 14%, 74%);
+    color: #720e9e;
     border-width: 1px;
     transition: background ease-in-out 0.3s;
     transition: color ease-in-out 0.3s;
   }
   .container-2 button:hover {
     background-color: transparent;
-    border-color: var(--white);
-    color: var(--white);
+    border-color: #fff;
+    color: #fff;
     border-width: 1px;
-    transition: var(--transition);
+    transition: all ease-in-out 0.3s;
   }
 }
 
@@ -229,16 +223,7 @@ hr {
     margin-top: initial;
     margin-bottom: initial;
   }
-  .container-2 ul li {
-    padding: 1.06rem;
-  }
 
-  .container-2 h2 {
-    padding-top: initial;
-  }
-  .container-2 p {
-    margin-top: initial;
-  }
 }
 
 @media screen and (max-width: 800px) {

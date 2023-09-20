@@ -11,10 +11,8 @@ const PersonalData = () => {
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
-    } else {
-      console.log("User is logged in:", user);
-    }
-  }, [user, navigate]); 
+    } 
+  }, [user, navigate]); // Include user and navigate in the dependency array
 
   return (
     <>
