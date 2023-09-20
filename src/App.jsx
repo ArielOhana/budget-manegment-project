@@ -13,7 +13,6 @@ import EditProfile from "./pages/EditProfile";
 import NoPage from "./pages/NoPage";
 import Payment from "./pages/Payment";
 import MyPlan from "./pages/MyPlan";
-import NoPage from "./pages/NoPage";
 import BudgetInfo from "./pages/BudgetInfo";
 
 function App() {
