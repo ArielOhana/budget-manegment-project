@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
+import "../style/EditProfile.css"
 
 const EditProfile = () => {
   const navigate = useNavigate();
