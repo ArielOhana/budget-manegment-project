@@ -5,61 +5,100 @@ dark purple: #720e9e;
 light purple: #d0d0ff; */
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar-container {
+  background-color: #000000;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-right {
+  display: flex;
+  flex-direction: row;
+  margin: 0 50px;
+}
+
+.navbar-left a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-right li {
+  margin: 0 30px;
+}
+
+.navbar li {
+  margin-right: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar img {
+  width: 40px;
+  height: 40px;
+  margin: 0 50px;
+}
+
+.navbar a:hover {
+  color: #d0d0ff;
+}
+
+@media screen and (max-width: 700px) {
   .navbar-container {
-    background-color: #000000; 
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    width: 100%;
-  }
-  
-  .navbar {
-    list-style-type: none;
+    flex-direction: column;
     margin: 0;
     padding: 0;
-    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+  }
+
+  .navbar img {
+    margin: 0;
+  }
+
+  .navbar-left-title {
+    margin: 0 1rem;
   }
 
   .navbar-right {
-    display: flex;
-    flex-direction: row;
-    margin: 0 50px;
+    margin: 1rem 0 .5rem 0;
+    padding: 0;
   }
 
-  .navbar-left a {
+  .navbar-left {
+    margin: .5rem 0 0 0;
+    padding: 0;
+  }
+
+  .navbar {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-  }
-
-  .navbar-right li {
-    margin: 0 30px;
+    align-items: center;
   }
 
   .navbar li {
-    margin-right: 20px;
+    margin: 0 .7rem;
   }
-  
-  .navbar a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  .navbar img {
-    width: 40px;
-    height: 40px;
-    margin: 0 50px; 
-  }
-  
-  .navbar a:hover {
-    color: #d0d0ff;
-  }  
+}

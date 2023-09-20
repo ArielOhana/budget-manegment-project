@@ -22,7 +22,7 @@ export default function HomePageThird() {
         ref={leftRef}
       >
         <div className="third-top-left">
-          <img src={manWorking} style={{ width: "600px", height: "400px" }} />
+          <img src={manWorking}  />
         </div>
         <div className="third-top-right">
           <h1>Customized Financial Advice for International Investors</h1>
@@ -55,7 +55,6 @@ export default function HomePageThird() {
         <div className="third-bottom-right">
           <img
             src={familyPlaying}
-            style={{ width: "600px", height: "400px" }}
           />
         </div>
       </div>

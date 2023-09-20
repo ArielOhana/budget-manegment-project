@@ -81,9 +81,66 @@
 .footer-top-left p {
   font-size: 18px;
   line-height: 2;
+  margin: 2rem 0 0 0;
 }
 
 .footer-top-left a {
   text-decoration: none;
   color: #fff;
+}
+
+@media screen and (max-width: 700px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 30px 1rem;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-top-left .title h2 {
+    margin: 0 0.7rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .footer-top-left .title {
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .title p {
+    padding: 2rem;
+  }
+
+
+  .footer-top-right {
+    margin-top: 1rem;
+  }
+
+  .top-right-policies {
+    align-items: center;
+  }
+
+  .top-right-random {
+    align-items: center;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+
+  .footer-bottom p {
+    padding: 15px;
+  }
+
+  .footer-bottom-images {
+    padding-bottom: 1.5rem;
+  }
 }
