@@ -1,11 +1,7 @@
-import { UserContext } from "../App";
-import { useContext } from "react";
 import InnerNavBar from "../components/InnerNavBar";
 import { Link, NavLink } from "react-router-dom";
 
 const NoPage = () => {
-    const { user, setUser } = useContext(UserContext);
-    console.log(user)
       return(
           <>
           <InnerNavBar>

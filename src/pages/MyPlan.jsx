@@ -1,12 +1,33 @@
 import React from "react";
 import "../style/MyPlan.css";
-import NavBar from "../components/NavBar";
-import { Link } from "react-router-dom";
+import InnerNavBar from "../components/InnerNavBar";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../App";
 
 export default function MyPlan() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext); // Retrieve context data here
+ 
+
+  useEffect(() => {
+    if (!user.UserName) {
+      navigate("/error");
+    } 
+  }, [user, navigate]);
   return (
     <div className="plans-container">
-      <NavBar />
+     <InnerNavBar>
+        <li>
+          <NavLink to="/editprofile">Edit Profile</NavLink>
+        </li>
+        <li>
+          <NavLink to="/budgetinfo">Budget Info</NavLink>
+        </li>
+        <li>
+          <NavLink to="/">Log Out</NavLink>
+        </li>
+      </InnerNavBar>
       <header>
         <h1>Our Plans</h1>
       </header>

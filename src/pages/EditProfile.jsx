@@ -15,9 +15,7 @@ const EditProfile = () => {
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
-    } else {
-      console.log("User is logged in:", user);
-    }
+    } 
   }, [user, navigate]); // Include user and navigate in the dependency array
   const {
     register,
@@ -27,7 +25,14 @@ const EditProfile = () => {
   
   const onSubmit = (data) => {
     alert("Saved!")
-    console.log(data);
+    setUser({...user, ...data})
+    UpdateLocalStorage({...user, ...data})
+  }
+  const UpdateLocalStorage = (element) =>{
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const targetIndex = users.findIndex((user) => user.UserName === element.UserName);
+    users[targetIndex] = element;
+    localStorage.setItem("users", JSON.stringify(users));
   }
   return (
     <>
@@ -36,15 +41,15 @@ const EditProfile = () => {
           <NavLink to="/personaldata">Personal Data</NavLink>
         </li>
         <li>
-          <NavLink to="/plans">Plan Options</NavLink>
+          <NavLink to="/budgetinfo">Budget Info</NavLink>
         </li>
         <li>
           <NavLink to="/">Log out</NavLink>
         </li>
       </InnerNavBar>
-      <h1>Edit Profile</h1>
+      <h1 style={{display:'flex',width:'100vw', justifyContent:'center'}}>Edit Profile</h1><br />
       <div className="All-div">
-      <div className="UnChangeable-div">
+     
       <Box
             component="form"
             sx={{
@@ -53,11 +58,54 @@ const EditProfile = () => {
             autoComplete="off"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div
+             <div className="UnChangeable-div" style={{
+                display: "flex",
+                width: "100%",
+                justifyContent: "center"}}>
+         
+              <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "100%",
+                width: "40%",
+                justifyContent: "center",
+                alignItems: "center",
+              }}  >
+              <TextField
+                required
+                id="adress"
+                label="adress"
+                defaultValue={user.adress ? user.adress : ""}
+                {...register("adress")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+              <TextField
+                required
+                id="state"
+                type="text"
+                label="state"
+                defaultValue={user.state ? user.state : ""}
+                {...register("state")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+              <TextField
+                required
+                id="phoneNumber"
+                label="Phone Number"
+                type="tel"
+                defaultValue={user.phoneNumber ? user.phoneNumber : ""}
+                {...register("phoneNumber")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+
+
+ 
+              </div>
+              <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "40%",
                 justifyContent: "center",
                 alignItems: "center",
               }}  >
@@ -67,7 +115,6 @@ const EditProfile = () => {
                 label="User Name"
                 disabled={true}
                 defaultValue={user.UserName ? user.UserName : ""}
-                {...register("UserName")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
               <TextField
@@ -78,7 +125,6 @@ const EditProfile = () => {
                 disabled={true}
 
                 defaultValue={user.Email ? user.Email : ""}
-                {...register("Email")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
               <TextField
@@ -90,53 +136,11 @@ const EditProfile = () => {
 
                 autoComplete="current-password"
                 defaultValue={user.Password ? user.Password : ""}
-                {...register("Password")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
- <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
-                </div>
               </div>
-              <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-              }}  >
-              <TextField
-                required
-                id="Name"
-                label="Name"
-                disabled={true}
-                defaultValue={user.Name ? user.Name : ""}
-                {...register("Name")}
-                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
-              />
-              <TextField
-                required
-                id="Email"
-                type="text"
-                label="Email"
-                disabled={true}
-
-                defaultValue={user.Email ? user.Email : ""}
-                {...register("Email")}
-                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
-              />
-              <TextField
-                required
-                id="Password"
-                label="Password"
-                type="text"
-                disabled={true}
-
-                autoComplete="current-password"
-                defaultValue={user.Password ? user.Password : ""}
-                {...register("Password")}
-                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
-              />
- <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
+              </div>
+              <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
                 <Button variant="contained"
                   type="submit"
                   sx={{ mt: 1,  /* margin top */ }}
@@ -145,10 +149,8 @@ const EditProfile = () => {
                 </Button>
                 
                 </div>
-              </div>
-             
           </Box>
-          </div>
+         
       </div>
     </>
   );
