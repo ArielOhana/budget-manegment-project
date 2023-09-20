@@ -1,8 +1,8 @@
 import "../style/InnerNavBar.css";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function InnerNavBar({children}) {
+export default function InnerNavBar ({children}) {
   return (
     <div className="inner-navbar-container">
       <ul className="inner-navbar">
@@ -16,9 +16,7 @@ export default function InnerNavBar({children}) {
             </div>
           </Link>
         </div>
-        <div className="inner-navbar-right">
-        {children}
-        </div>
+        <div className="inner-navbar-right">{children}</div>
       </ul>
     </div>
   );
