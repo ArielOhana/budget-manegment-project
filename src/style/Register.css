@@ -1,40 +1,72 @@
-#Main
-{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #E6E6FA;
-   
+#Main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #e6e6fa;
 }
-#Register-Main
-{
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    
+#Register-Main {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 #statsimg {
-    height: 100%;
-    opacity: 0.77;
-    transition: transform 0.4s ease, opacity 0.5s ease; 
+  height: 100%;
+  opacity: 0.77;
+  transition: transform 0.4s ease, opacity 0.5s ease;
 }
 
 #statsimg:hover {
-        opacity: 0.94;
+  opacity: 0.94;
 }
-.back-div
-{
-    display: flex;
+.back-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.back-div Button {
+  min-width: 100px;
+}
+
+@media screen and (max-width: 800px) {
+  #Main {
+    flex-direction: column-reverse;
+  }
+
+  #Register-Main {
+    justify-content: center;
+    z-index: 2;
+  }
+
+  #Register-Main h1 {
+    color: #fff;
+  }
+
+  #statsimg {
+    position: absolute;
+    opacity: 1;
     width: 100%;
-    justify-content: space-around;
-}
-.back-div Button
-{
-    min-width: 100px
+    height: 100%;
+  }
+
+  .back-div {
+    justify-content: center;
+    margin: 2dvi;
+  }
+
+  .back-div a {
+    margin: 0 1rem;
+  }
+
+  .back-div button {
+    font-size: 0.6rem;
+    color: #000;
+    background-color: #d0d0ff;
+    font-weight: bold;
+  }
 }
