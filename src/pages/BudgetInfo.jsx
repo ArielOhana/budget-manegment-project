@@ -11,6 +11,8 @@ import "../style/BudgetInfo.css"
 
 const BudgetInfo = () => {
   const navigate = useNavigate();
+  const date = new Date();
+
   const { user, setUser } = useContext(UserContext); // Retrieve context data here
   const {
     register,
@@ -61,13 +63,18 @@ const BudgetInfo = () => {
     }
   }, [user, navigate]);
   function TotalExpenses() {
+    
     let total = 0;
     user.events?.map((event) => {
-      total += Number(event.ammount);
+       if(extractMonthFromDate(event.start) == (date.getMonth() +1)) total += Number(event.ammount);
     });
     return total;
+}
+function extractMonthFromDate(dateString) {
+    const date = new Date(dateString);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    return month;
   }
-
   return (
     <>
       <InnerNavBar>
