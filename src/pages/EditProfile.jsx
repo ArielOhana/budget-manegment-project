@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import InnerNavBar from "../components/InnerNavBar";
+import "../style/EditProfile.css";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const EditProfile = () => {
             "& .MuiTextField-root": { m: 1, width: "25ch" },
           }}
           autoComplete="off"
-          onSubmit={handleSubmit(onSubmit)} 
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div
             className="UnChangeable-div"
@@ -80,6 +81,7 @@ const EditProfile = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              className="UnChangeable-div-child"
             >
               <TextField
                 required
@@ -116,6 +118,7 @@ const EditProfile = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              className="UnChangeable-div-child"
             >
               <TextField
                 required
@@ -152,6 +155,7 @@ const EditProfile = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              className="UnChangeable-div-child"
             >
               <TextField
                 required
@@ -189,11 +193,7 @@ const EditProfile = () => {
               width: "100%",
             }}
           >
-            <Button
-              variant="contained"
-              type="submit"
-              sx={{ mt: 1 }}
-            >
+            <Button variant="contained" type="submit" sx={{ mt: 1 }}>
               Save
             </Button>
           </div>

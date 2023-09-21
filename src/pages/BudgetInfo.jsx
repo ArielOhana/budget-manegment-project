@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
 import AdjustCalendar from "../components/AdjustCalendar";
+import "../style/BudgetInfo.css"
 
 const BudgetInfo = () => {
   const navigate = useNavigate();
@@ -40,14 +41,14 @@ const BudgetInfo = () => {
     const formattedDate = new Date(
       parsedDate.getFullYear(),
       parsedDate.getMonth(),
-      parsedDate.getDate(),
+      parsedDate.getDate()
     );
-  
+
     user.events.push({
       id: user.events.length,
       title: data.title + ": " + data.ammount,
       start: formattedDate, // Use formattedDate here
-      end: formattedDate,   // Use formattedDate here
+      end: formattedDate, // Use formattedDate here
       ammount: data.ammount,
     });
     setUser(user);
@@ -59,12 +60,13 @@ const BudgetInfo = () => {
       navigate("/error");
     }
   }, [user, navigate]);
-function TotalExpenses()
-{
-    let total= 0;
-    user.events?.map((event) => {total += Number(event.ammount)})
+  function TotalExpenses() {
+    let total = 0;
+    user.events?.map((event) => {
+      total += Number(event.ammount);
+    });
     return total;
-}
+  }
 
   return (
     <>
@@ -100,7 +102,15 @@ function TotalExpenses()
             width: "100%",
           }}
         >
-            <h3 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>Popping Expenses</h3>
+          <h3
+            style={{
+              display: "flex",
+              width: "100vw",
+              justifyContent: "center",
+            }}
+          >
+            Popping Expenses
+          </h3>
           <TextField
             required
             id="date"
@@ -138,7 +148,9 @@ function TotalExpenses()
         </div>
       </Box>
       <br />
-      <h3 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>{`Total Expenses: ${TotalExpenses()}`}</h3>
+      <h3
+        style={{ display: "flex", width: "100vw", justifyContent: "center" }}
+      >{`Total Expenses: ${TotalExpenses()}`}</h3>
       <AdjustCalendar />
     </>
   );

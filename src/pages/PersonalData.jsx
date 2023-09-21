@@ -11,6 +11,7 @@ export const data = [
   ["Work", 11],
   ["Eat", 2],
   ["Commute", 2],
+  ["Bathroom", 20],
   ["Watch TV", 2],
   ["Sleep", 7],
 ];
