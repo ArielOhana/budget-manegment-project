@@ -85,8 +85,12 @@ body {
   }
 
   .inner-navbar-left {
-    margin: .5rem 0 0 0;
+    margin: 1rem 0 0 0;
     padding: 0;
+  }
+
+  .inner-navbar-left h2 {
+    margin: 0;
   }
 
   .inner-navbar {

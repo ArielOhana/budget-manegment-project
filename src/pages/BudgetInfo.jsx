@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
 import AdjustCalendar from "../components/AdjustCalendar";
 import "../style/BudgetInfo.css"
+import Footer from "../components/Footer";
 
 const BudgetInfo = () => {
   const navigate = useNavigate();
@@ -159,6 +160,7 @@ function extractMonthFromDate(dateString) {
         style={{ display: "flex", width: "100vw", justifyContent: "center" }}
       >{`Total Expenses: ${TotalExpenses()}`}</h3>
       <AdjustCalendar />
+      <Footer />
     </>
   );
 };

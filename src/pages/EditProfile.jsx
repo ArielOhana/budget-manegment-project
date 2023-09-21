@@ -1,12 +1,13 @@
 import { UserContext } from "../App";
 import { useContext, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import InnerNavBar from "../components/InnerNavBar";
 import "../style/EditProfile.css";
+import Footer from "../components/Footer";
 
 const EditProfile = () => {
   const navigate = useNavigate();

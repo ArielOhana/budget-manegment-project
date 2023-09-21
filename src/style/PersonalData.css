@@ -1,5 +1,8 @@
-@media screen and (max-width: 700px) {
-    .budget-pie-chart {
-        width: 100%;
-    }
+.budget-pie-chart {
+    margin: 2rem;
 }
+
+.budget-bar-chart {
+    margin: 2rem;
+}
+

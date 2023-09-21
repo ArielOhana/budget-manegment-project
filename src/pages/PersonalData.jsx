@@ -5,19 +5,8 @@ import { NavLink } from "react-router-dom";
 import { Chart } from "react-google-charts";
 import "../style/PersonalData.css";
 import InnerNavBar from "../components/InnerNavBar";
-
-// export const data = [
-//   ["Outcome", "Amount"],
-  
-//   ["Work", 11],
-//   ["Eat", 2],
-//   ["Commute", 2],
-//   ["Watch TV", 2],
-//   ["Sleep", 7],
-// ];
-
-// let income = JSON.parse(localStorage.getItem("totalincome")) || [];
-
+import Footer from "../components/Footer";
+import BarChart from "../components/BarChart";
 
 const PersonalData = () => {
   const navigate = useNavigate();
@@ -26,19 +15,19 @@ const PersonalData = () => {
   let data = [["Outcome", "Amount"]];
   const date = new Date();
   user.events?.forEach((event) => {
-    if(extractMonthFromDate(event.start) == (date.getMonth() +1))
-    {const title = event?.title;
-    const amount = Number(event?.ammount) || 0;
+    if (extractMonthFromDate(event.start) == date.getMonth() + 1) {
+      const title = event?.title;
+      const amount = Number(event?.ammount) || 0;
 
-    data.push([title, amount]);
-  }});
+      data.push([title, amount]);
+    }
+  });
   function extractMonthFromDate(dateString) {
     const date = new Date(dateString);
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
     return month;
   }
-  
-  // Ensure that the "Other" label is only added if there's more than one event
+
   if (user.events && user.events.length > 1) {
     data.push(["Other", 0]);
   }
@@ -69,10 +58,13 @@ const PersonalData = () => {
           width="100%"
           height="450px"
           data={data}
-          options={{title: `My Budget: ${user?.monthlyincome}`,
-          is3D: true,}}
+          options={{ title: `My Budget: ${user?.monthlyincome}`, is3D: true }}
         />
       </div>
+      <div className="budget-bar-chart">
+        <BarChart />
+      </div>
+      <Footer />
     </div>
   );
 };
