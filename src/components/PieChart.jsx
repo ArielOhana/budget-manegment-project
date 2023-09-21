@@ -7,10 +7,8 @@ import { useNavigate } from "react-router-dom";
 export default function PieChart() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
-
   let totalcost = 0;
   let data = [["Outcome", "Amount"]];
-
   const date = new Date();
   user.events?.forEach((event) => {
     if (extractMonthFromDate(event.start) == date.getMonth() + 1) {
@@ -29,15 +27,14 @@ export default function PieChart() {
   if (user.events && user.events.length > 1) {
     data.push(["Other", 0]);
   }
-  if (
-    user.events &&
-    user.events.length > 0 &&
-    user?.monthlyincome - totalcost > 0
-  ) {
-    data.push([
-      `Margin: ${user?.monthlyincome - totalcost}`,
-      user?.monthlyincome - totalcost,
-    ]);
+   totalcost = totalcost + Number(user?.regularexpenses)
+  if (user.events && user.events.length > 0 && (Number(user?.monthlyincome) - totalcost - Number(user?.regularexpenses) > 0) ) {
+    data.push([`Regular Expenses: ${ user?.regularexpenses}`, Number(user?.regularexpenses)]);
+    data.push([`Margin: ${ user?.monthlyincome - totalcost}`, Number(user?.monthlyincome) - totalcost]);
+  }
+  else
+  {
+    data=[["Outcome", "Amount"], [`Monthly Income: ${ user?.monthlyincome}`, Number(user?.monthlyincome)], [`Monthly Outcome: ${totalcost}`, Number(totalcost)]];
   }
   return (
     <div className="budget-pie-chart">
