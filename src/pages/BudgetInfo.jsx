@@ -59,6 +59,12 @@ const BudgetInfo = () => {
       navigate("/error");
     }
   }, [user, navigate]);
+function TotalExpenses()
+{
+    let total= 0;
+    user.events?.map((event) => {total += Number(event.ammount)})
+    return total;
+}
 
   return (
     <>
@@ -94,10 +100,10 @@ const BudgetInfo = () => {
             width: "100%",
           }}
         >
+            <h3 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>Popping Expenses</h3>
           <TextField
             required
             id="date"
-            label="Date"
             type="date"
             {...register("date")}
             sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
@@ -132,64 +138,7 @@ const BudgetInfo = () => {
         </div>
       </Box>
       <br />
-      <Box
-        component="form"
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "25ch" },
-        }}
-        autoComplete="off"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            width: "100%",
-          }}
-        >
-          <TextField
-            required
-            id="familymembers"
-            label="Family Members"
-            type="number"
-            defaultValue={user.familymembers ? user.familymembers : ""}
-            {...register("familymembers")}
-            sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
-          />
-          <TextField
-            required
-            id="totalincome"
-            label="Total Income"
-            type="number"
-            defaultValue={user.totalincome ? user.totalincome : ""}
-            {...register("totalincome")}
-            sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
-          />
-          <TextField
-            required
-            color="error"
-            id="regularoutcome"
-            label="Regular Expenses"
-            type="number"
-            defaultValue={user.regularoutcome ? user.regularoutcome : ""}
-            {...register("regularoutcome")}
-            sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
-          />
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", width: "100%" }}
-        >
-          <Button
-            variant="contained"
-            type="submit"
-            sx={{ mt: 1 /* margin top */ }}
-          >
-            Save
-          </Button>{" "}
-        </div>
-      </Box>
-
+      <h3 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>{`Total Expenses: ${TotalExpenses()}`}</h3>
       <AdjustCalendar />
     </>
   );

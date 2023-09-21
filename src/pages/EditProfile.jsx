@@ -76,7 +76,7 @@ const EditProfile = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "40%",
+                width: "30%",
                 justifyContent: "center",
                 alignItems: "center",
               }}
@@ -112,7 +112,43 @@ const EditProfile = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "40%",
+                width: "30%",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <TextField
+                required
+                id="familymembers"
+                label="Family Members"
+                defaultValue={user.familymembers ? user.familymembers : ""}
+                {...register("familymembers")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+              <TextField
+                required
+                id="monthlyincome"
+                type="text"
+                label="Monthly Income"
+                defaultValue={user.monthlyincome ? user.monthlyincome : ""}
+                {...register("monthlyincome")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+              <TextField
+                required
+                id="regularexpenses"
+                label="Regular Expenses"
+                type="tel"
+                defaultValue={user.regularexpenses ? user.regularexpenses : ""}
+                {...register("regularexpenses")}
+                sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "30%",
                 justifyContent: "center",
                 alignItems: "center",
               }}

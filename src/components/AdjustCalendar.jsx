@@ -8,11 +8,21 @@ const localizer = momentLocalizer(moment);
 
 const AdjustCalendar = () => {
   const { user, setUser } = useContext(UserContext);
+  const views = ['month', 'agenda'];
 
- 
-  // Specify the views you want to include (in this case, only 'month')
-  const views = ['month'];
-
+  const handleEventDoubleClick = (event) => {
+    const updatedEvents = user.events.filter((e) => e.id !== event.id);
+    setUser({ ...user, events: updatedEvents });
+    UpdateLocalStorage({ ...user, events: updatedEvents });
+  };
+  const UpdateLocalStorage = (element) => {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const targetIndex = users.findIndex(
+      (user) => user.UserName === element.UserName
+    );
+    users[targetIndex] = element;
+    localStorage.setItem("users", JSON.stringify(users));
+  };
   return (
     <div style={{ height: 500 }}>
       <Calendar
@@ -21,7 +31,8 @@ const AdjustCalendar = () => {
         startAccessor="start"
         endAccessor="end"
         style={{ margin: '20px' }}
-        views={views} // Use the views prop to specify the views you want
+        views={views}
+        onDoubleClickEvent={handleEventDoubleClick}
       />
     </div>
   );
