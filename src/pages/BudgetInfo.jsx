@@ -59,6 +59,12 @@ const BudgetInfo = () => {
       navigate("/error");
     }
   }, [user, navigate]);
+function TotalExpenses()
+{
+    let total= 0;
+    user.events?.map((event) => {total += Number(event.ammount)})
+    return total;
+}
 
   return (
     <>
@@ -94,10 +100,10 @@ const BudgetInfo = () => {
             width: "100%",
           }}
         >
+            <h3 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>Popping Expenses</h3>
           <TextField
             required
             id="date"
-            label="Date"
             type="date"
             {...register("date")}
             sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
@@ -132,7 +138,7 @@ const BudgetInfo = () => {
         </div>
       </Box>
       <br />
-     
+      <h3 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>{`Total Expenses: ${TotalExpenses()}`}</h3>
       <AdjustCalendar />
     </>
   );
