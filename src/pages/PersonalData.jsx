@@ -4,9 +4,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "../style/PersonalData.css";
 import InnerNavBar from "../components/InnerNavBar";
 import Footer from "../components/Footer";
-import BarChart from "../components/BarChart";
-import PieChart from "../components/PieChart";
-import AreaChart from "../components/AreaChart";
+import BarChart from "../components/Charts/BarChart";
+import PieChart from "../components/Charts/PieChart";
+import AreaChart from "../components/Charts/AreaChart";
 
 const PersonalData = () => {
   const navigate = useNavigate();
