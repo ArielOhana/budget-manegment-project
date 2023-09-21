@@ -105,6 +105,7 @@ const EditProfile = () => {
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
               />
             </div>
+         
             <div
               style={{
                 display: "flex",
