@@ -1,11 +1,11 @@
 import { UserContext } from "../App";
 import { useContext, useEffect } from "react";
-import InnerNavBar from "../components/InnerNavBar";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { useForm } from "react-hook-form";
+import InnerNavBar from "../components/InnerNavBar";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -156,7 +156,7 @@ const EditProfile = () => {
             <Button
               variant="contained"
               type="submit"
-              sx={{ mt: 1 /* margin top */ }}
+              sx={{ mt: 1 }}
             >
               Save
             </Button>
