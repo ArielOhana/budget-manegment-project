@@ -17,12 +17,14 @@ export const options = {
 
 export default function BarChart() {
   return (
-    <Chart
-      chartType="Bar"
-      width="100%"
-      height="500px"
-      data={data}
-      options={options}
-    />
+    <div className="budget-bar-chart">
+      <Chart
+        chartType="Bar"
+        width="100%"
+        height="500px"
+        data={data}
+        options={options}
+      />
+    </div>
   );
 }

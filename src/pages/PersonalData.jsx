@@ -6,6 +6,7 @@ import InnerNavBar from "../components/InnerNavBar";
 import Footer from "../components/Footer";
 import BarChart from "../components/BarChart";
 import PieChart from "../components/PieChart";
+import AreaChart from "../components/AreaChart";
 
 const PersonalData = () => {
   const navigate = useNavigate();
@@ -30,10 +31,15 @@ const PersonalData = () => {
           <NavLink to="/">Log Out</NavLink>
         </li>
       </InnerNavBar>
-      <div className="budget-pie-chart-container">
-        <PieChart />
+      <div className="pie-area-wrapper">
+        <div className="budget-pie-chart-container">
+          <PieChart />
+        </div>
+        <div className="budget-area-chart-container">
+          <AreaChart />
+        </div>
       </div>
-      <div className="budget-bar-chart">
+      <div className="budget-bar-chart-container">
         <BarChart />
       </div>
       <Footer />
