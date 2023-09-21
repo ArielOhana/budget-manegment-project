@@ -1,6 +1,6 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import { UserContext } from "../App";
+import { UserContext } from "../../App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 

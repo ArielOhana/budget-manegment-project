@@ -87,7 +87,7 @@ const EditProfile = () => {
               <TextField
                 required
                 id="adress"
-                label="adress"
+                label="Adress"
                 defaultValue={user.adress ? user.adress : ""}
                 {...register("adress")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
@@ -96,7 +96,7 @@ const EditProfile = () => {
                 required
                 id="state"
                 type="text"
-                label="state"
+                label="Country"
                 defaultValue={user.state ? user.state : ""}
                 {...register("state")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
@@ -124,6 +124,7 @@ const EditProfile = () => {
               <TextField
                 required
                 id="familymembers"
+                type="number"
                 label="Family Members"
                 defaultValue={user.familymembers ? user.familymembers : ""}
                 {...register("familymembers")}
@@ -132,7 +133,7 @@ const EditProfile = () => {
               <TextField
                 required
                 id="monthlyincome"
-                type="text"
+                type="number"
                 label="Monthly Income"
                 defaultValue={user.monthlyincome ? user.monthlyincome : ""}
                 {...register("monthlyincome")}
@@ -142,7 +143,7 @@ const EditProfile = () => {
                 required
                 id="regularexpenses"
                 label="Regular Expenses"
-                type="tel"
+                type="number"
                 defaultValue={user.regularexpenses ? user.regularexpenses : ""}
                 {...register("regularexpenses")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
