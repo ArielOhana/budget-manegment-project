@@ -1,0 +1,8 @@
+@media screen and (max-width: 700px) {
+        .UnChangeable-div {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 100%;
+        }
+    }

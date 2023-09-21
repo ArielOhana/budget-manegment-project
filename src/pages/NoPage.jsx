@@ -1,20 +1,35 @@
 import InnerNavBar from "../components/InnerNavBar";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "../style/NoPage.css";
 
 const NoPage = () => {
-      return(
-          <>
-          <InnerNavBar>
-        <li>
-        <NavLink to="/">Log out</NavLink>
-        </li>
-         </InnerNavBar>
-         <div style={{display:'flex',flexDirection:'column', justifyContent:'center',alignItems:'center', width:'100vw',height:'80vh'}}>
-            <h1 style={{fontSize:'8rem'}}>404</h1>
-            <h4 style={{fontSize:'3rem'}}>What you trying to do? go back.</h4>
-            </div>
-          
-          </>
-    )
-}
+  return (
+    <div className="error-container">
+      <h1 className="animated-heading">Looks like you are out of luck!</h1>
+      <h2 className="animated-subheading">Please try again</h2>
+      <div className="btns">
+        <div className="home-btn">
+          <button className="learn-more">
+            <span className="circle" aria-hidden="true">
+              <span className="icon arrow"></span>
+            </span>
+            <NavLink to="/">
+              <span className="button-text">Home</span>
+            </NavLink>
+          </button>
+        </div>
+        <div className="login-btn">
+          <button className="learn-more">
+            <span className="circle" aria-hidden="true">
+              <span className="icon arrow"></span>
+            </span>
+            <NavLink to="/login">
+              <span className="button-text">Login</span>
+            </NavLink>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 export default NoPage;

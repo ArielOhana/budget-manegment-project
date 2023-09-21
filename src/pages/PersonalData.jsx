@@ -12,7 +12,7 @@ const PersonalData = () => {
     if (!user.UserName) {
       navigate("/error");
     } 
-  }, [user, navigate]); // Include user and navigate in the dependency array
+  }, [user, navigate]); 
 
   return (
     <>
