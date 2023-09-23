@@ -1,4 +1,5 @@
-import { useEffect, useContext } from "react";
+// PersonalData.jsx
+import React, { useEffect, useContext, useState } from "react";
 import { UserContext } from "../App";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../style/PersonalData.css";
@@ -11,10 +12,15 @@ import AreaChart from "../components/Charts/AreaChart";
 const PersonalData = () => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
+    } else {
+      setTimeout(() => {
+        setDataLoaded(true);
+      }, 1000); // Simulate loading time
     }
   }, [user, navigate]);
 
@@ -31,17 +37,23 @@ const PersonalData = () => {
           <NavLink to="/">Log Out</NavLink>
         </li>
       </InnerNavBar>
-      <div className="pie-area-wrapper">
-        <div className="budget-pie-chart-container">
-          <PieChart />
+      {dataLoaded ? (
+        <div className="pie-area-wrapper">
+          <div className="budget-pie-chart-container">
+            <PieChart />
+          </div>
+          <div className="budget-area-chart-container">
+            <AreaChart />
+          </div>
         </div>
-        <div className="budget-area-chart-container">
-          <AreaChart />
+      ) : (
+        <div>Loading...</div>
+      )}
+      {dataLoaded && (
+        <div className="budget-bar-chart-container">
+          <BarChart />
         </div>
-      </div>
-      <div className="budget-bar-chart-container">
-        <BarChart />
-      </div>
+      )}
       <Footer />
     </div>
   );
