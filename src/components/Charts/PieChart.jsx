@@ -9,7 +9,7 @@ export default function PieChart() {
   const { user, setUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([["Outcome", "Amount"]]);
-
+  const date = new Date();
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
@@ -21,11 +21,12 @@ export default function PieChart() {
         let newData = [["Outcome", "Amount"]];
 
         user.events?.forEach((event) => {
+          if (extractMonthFromDate(event.start) == date.getMonth() + 1){
           const title = event?.title;
           const amount = Number(event?.ammount) || 0;
           totalcost = totalcost + amount;
           newData.push([title, amount]);
-        });
+        }});
 
         if (user.events && user.events.length > 1) {
           newData.push(["Other", 0]);
@@ -44,7 +45,11 @@ export default function PieChart() {
       }, 500); // Simulate loading time
     }
   }, [user, navigate]);
-
+  function extractMonthFromDate(dateString) {
+    const date = new Date(dateString);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    return month;
+  }
   return (
     <div className="budget-pie-chart">
       {isLoading ? (
