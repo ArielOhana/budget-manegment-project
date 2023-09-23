@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import BarChart from "../components/Charts/BarChart";
 import PieChart from "../components/Charts/PieChart";
 import AreaChart from "../components/Charts/AreaChart";
+import AtomicSpinner from 'atomic-spinner'
 
 const PersonalData = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const PersonalData = () => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div style={{width: '100%', height:'80vh', display:'flex', justifyContent:"center"}}><AtomicSpinner atomSize={500} /></div>
       )}
       {dataLoaded && (
         <div className="budget-bar-chart-container">
