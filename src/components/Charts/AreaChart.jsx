@@ -1,21 +1,82 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Chart } from "react-google-charts";
-
-export const data = [
-  ["Month", "Salary", "Expenses"],
-  ["September", 12000, 4000],
-  ["October", 13000, 4600],
-  ["November", 12000, 11200]
-];
-
-export const options = {
-  title: "Income/Outcome",
-  hAxis: { title: "Month", titleTextStyle: { color: "#333" } },
-  vAxis: { minValue: 0 },
-  chartArea: { width: "60%", height: "70%" },
-};
+import { UserContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 export default function AreaChart() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([["Outcome", "Amount"]]);
+  const date = new Date();
+  useEffect(() => {
+    if (!user.UserName) {
+      navigate("/error");
+    } else {
+      // Simulate data loading
+      setTimeout(() => {
+        setIsLoading(false);
+        let totalcost = 0;
+        let newData = CalcMonths();
+        setData(newData);
+      }, 500); // Simulate loading time
+    }
+  }, [user, navigate]);
+  function extractMonthFromDate(dateString) {
+    const date = new Date(dateString);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    return month;
+  }
+  
+function CalcMonths()
+{
+  let lastMonth = [getMonthName(date.getMonth()),Number(user.monthlyincome ? user.monthlyincome : 0),Number(user.regularexpenses ? user.regularexpenses : 0)];
+  let currentMonth = [getMonthName(date.getMonth() + 1),Number(user.monthlyincome ? user.monthlyincome : 0),Number(user.regularexpenses ? user.regularexpenses : 0)];
+  let nextMonth = [getMonthName((date.getMonth() + 2) % 11) ,Number(user.monthlyincome ? user.monthlyincome : 0),Number(user.regularexpenses ? user.regularexpenses : 0)]; //Moudle to make sure it's not extends above twelve months
+  user.events?.forEach((event) => {
+    if (extractMonthFromDate(event.start) == date.getMonth()){
+    
+    const amount = Number(event?.ammount) || 0;
+    lastMonth[2] =Number(Number(lastMonth[2]) + Number(amount));
+  }
+  if (extractMonthFromDate(event.start) == date.getMonth()+ 1){
+    
+    const amount = Number(event?.ammount) || 0;
+    currentMonth[2] = Number(Number(currentMonth[2]) + Number(amount));
+  }
+  if (extractMonthFromDate(event.start) == (date.getMonth() + 2) % 11){
+    
+    const amount = Number(event?.ammount) || 0;
+    nextMonth[2] = Number(Number(nextMonth[2]) + Number(amount));
+  }});
+
+return [["Month", "Salary", "Expenses"], lastMonth,currentMonth,nextMonth]
+
+}
+function getMonthName(monthNumber) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  if (monthNumber >= 1 && monthNumber <= 12) {
+    return months[monthNumber]; 
+  } else {
+    return "Invalid Month";
+  }
+}
+
+
   return (
     <div className="budget-area-chart">
       <Chart
@@ -23,7 +84,12 @@ export default function AreaChart() {
         width="100%"
         height="450px"
         data={data}
-        options={options}
+        options={{
+          title: "Income/Outcome",
+          hAxis: { title: "Month", titleTextStyle: { color: "#333" } },
+          vAxis: { minValue: 0 },
+          chartArea: { width: "60%", height: "70%" },
+        }}
       />
     </div>
   );

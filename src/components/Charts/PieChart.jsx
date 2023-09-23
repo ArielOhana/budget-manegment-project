@@ -19,12 +19,16 @@ export default function PieChart() {
         setIsLoading(false);
         let totalcost = 0;
         let newData = [["Outcome", "Amount"]];
-
+        let positivevalues = 0;
         user.events?.forEach((event) => {
           if (extractMonthFromDate(event.start) == date.getMonth() + 1){
           const title = event?.title;
-          const amount = Number(event?.ammount) || 0;
-          totalcost = totalcost + amount;
+          let amount = Number(event?.ammount) || 0;
+            if( amount < 0){
+           amount = amount *-1
+           positivevalues = Number(positivevalues) + Number(amount);
+          }else{totalcost = totalcost + amount;}
+          
           newData.push([title, amount]);
         }});
 
@@ -34,13 +38,12 @@ export default function PieChart() {
 
         totalcost = totalcost + Number(user?.regularexpenses);
 
-        if (user?.events && user?.monthlyincome >= totalcost) {
+        if (user?.events && Number(user?.monthlyincome) + positivevalues >= totalcost) {
           newData.push([`Regular Expenses: ${user?.regularexpenses}`, Number(user?.regularexpenses)]);
-          newData.push([`Margin: ${user?.monthlyincome - totalcost}`, Number(user?.monthlyincome) - totalcost]);
+          newData.push([`Margin: ${user?.monthlyincome - totalcost >= 0 ?user?.monthlyincome - totalcost : user?.monthlyincome - totalcost + positivevalues}`, Number(user?.monthlyincome - totalcost >= 0 ?user?.monthlyincome - totalcost : user?.monthlyincome - totalcost + positivevalues)]);
         } else {
-          newData = [["Outcome", "Amount"], [`Monthly Income: ${user?.monthlyincome}`, Number(user?.monthlyincome)], [`Monthly Outcome: ${totalcost}`, Number(totalcost)]];
+          newData = [["Outcome", "Amount"], [`Monthly Income: ${Number(user?.monthlyincome) + positivevalues}`, Number(user?.monthlyincome )+positivevalues], [`Monthly Outcome: ${totalcost}`, Number(totalcost)]];
         }
-
         setData(newData);
       }, 500); // Simulate loading time
     }
