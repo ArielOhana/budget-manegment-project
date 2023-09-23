@@ -137,7 +137,7 @@ function extractMonthFromDate(dateString) {
           <TextField
             required
             id="ammount"
-            label="Ammount"
+            label="Amount"
             type="number"
             {...register("ammount")}
             sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}
