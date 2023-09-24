@@ -58,9 +58,9 @@ export default function PieChart() {
     <div className="budget-pie-chart">
       {isLoading ? (
           <div>
-          <h1  style={{width: '100%',display:'flex',justifyContent:'center'}}>Loading...</h1>
+          <h1  style={{width: '100%',display:'flex',justifyContent:'center'}}>Loading Pie Chart</h1>
             <div style={{width: '100%', height:'80vh', display:'flex', justifyContent:"center"}}>
-              <AtomicSpinner nucleusParticleFillColor={'#d0d0ff'} displayElectronPaths={false} electronPathCount={32} electronColorPalette={[ '#720e9e', `#AA44AE`, `#220e22` ]} atomSize={200} />
+            <AtomicSpinner nucleusParticleFillColor={'#220e22'} displayElectronPaths={false} electronPathCount={4} electronsPerPath={15} electronColorPalette={[ '#720e9e', `#AA44AE`, `#220e22` ]} atomSize={500} />
               </div>
               </div>
       ) : (
