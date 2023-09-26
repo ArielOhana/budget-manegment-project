@@ -29,6 +29,12 @@ body {
   justify-content: space-between;
 }
 
+.inner-navbar-right-container {
+  display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
 .inner-navbar-right {
   display: flex;
   flex-direction: row;

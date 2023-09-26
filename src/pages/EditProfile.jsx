@@ -1,5 +1,5 @@
 import { UserContext } from "../App";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import InnerNavBar from "../components/InnerNavBar";
 import "../style/EditProfile.css";
-import Footer from "../components/Footer";
+import Avatar from "@mui/material/Avatar";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const EditProfile = () => {
     alert("User Information Saved");
     setUser({ ...user, ...data });
     UpdateLocalStorage({ ...user, ...data });
-    navigate("/personaldata")
+    navigate("/personaldata");
   };
 
   const UpdateLocalStorage = (element) => {
@@ -39,6 +39,26 @@ const EditProfile = () => {
     );
     users[targetIndex] = element;
     localStorage.setItem("users", JSON.stringify(users));
+  };
+
+  const [selectedAvatar, setSelectedAvatar] = useState(user.avatarId);
+  const avatars = [
+    { id: 1, src: "../../images/avatar-images/avatar-1.png" },
+    { id: 2, src: "../../images/avatar-images/avatar-2.png" },
+    { id: 3, src: "../../images/avatar-images/avatar-3.png" },
+    { id: 4, src: "../../images/avatar-images/avatar-4.png" },
+    { id: 5, src: "../../images/avatar-images/avatar-5.png" },
+    { id: 6, src: "../../images/avatar-images/avatar-6.png" },
+    { id: 7, src: "../../images/avatar-images/avatar-7.png" },
+    { id: 8, src: "../../images/avatar-images/avatar-8.png" },
+    { id: 9, src: "../../images/avatar-images/avatar-9.png" },
+    { id: 10, src: "../../images/avatar-images/avatar-10.png" },
+    { id: 11, src: "../../images/avatar-images/avatar-11.png" },
+  ];
+  const handleAvatarClick = (avatarId) => {
+    setSelectedAvatar(avatarId);
+    setUser({ ...user, avatarId: avatarId });
+    UpdateLocalStorage({ ...user, avatarId: avatarId });
   };
 
   return (
@@ -54,11 +74,38 @@ const EditProfile = () => {
           <NavLink to="/">Log out</NavLink>
         </li>
       </InnerNavBar>
-      <h1 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>
-        Edit Profile
-      </h1>
-      <br />
       <div className="All-div">
+        <div
+          className="Avatar-div"
+          style={{
+            width: "100vw",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            margin: "2rem"
+          }}
+        >
+          <div
+            className="Avatars"
+            style={{
+              width: "60%",
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {avatars.map((avatar) => (
+              <Avatar
+                key={avatar.id}
+                className={
+                  selectedAvatar === avatar.id ? "avatar-clicked" : "avatar"
+                }
+                src={avatar.src}
+                onClick={() => handleAvatarClick(avatar.id)}
+              />
+            ))}
+          </div>
+        </div>
         <Box
           component="form"
           sx={{

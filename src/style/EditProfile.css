@@ -1,3 +1,18 @@
+.avatar {
+    opacity: 0.6;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .avatar:hover {
+    transform: scale(1.5); /* Scale the avatar on hover */
+    opacity: 1;
+  }
+  .avatar-clicked
+  {
+    transform: scale(1.5); /* Scale the avatar on hover */
+    opacity: 1;
+  }
+
 @media screen and (max-width: 700px) {
         .UnChangeable-div {
             display: flex;
