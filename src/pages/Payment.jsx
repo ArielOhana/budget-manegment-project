@@ -5,6 +5,9 @@ import InnerNavBar from "../components/InnerNavBar";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../App";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  
 
 export default function Payment({ price }) {
   const navigate = useNavigate();
@@ -30,8 +33,7 @@ const SaveCreditCard = () =>
 let card = {creditCardNumber: creditCardNumber, cvvCode: cvvCode, nameOnCard: nameOnCard,monthOnCard: monthOnCard}
 setUser({ ...user,card  });
 UpdateLocalStorage({ ...user, card });
-alert("Order Confirmed")
-navigate("/personaldata")
+toast("User Information Saved", {theme: "dark", type:"success"});
 };
 
 const UpdateLocalStorage = (element) => {
@@ -89,6 +91,12 @@ const handleMonthOnCardChange = (e) => {
           <NavLink to="/">Log Out</NavLink>
         </li>
       </InnerNavBar>
+      <ToastContainer autoClose={1000} onClose={() => {
+  setTimeout(() => {
+    navigate("/personaldata");
+  }, 1700); // Adjust the delay (in milliseconds) as needed
+}} />
+
       <div class="container">
         <h1>Payment</h1>
         <div class="row">
