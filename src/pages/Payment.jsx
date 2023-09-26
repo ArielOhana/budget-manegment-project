@@ -5,16 +5,13 @@ import InnerNavBar from "../components/InnerNavBar";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../App";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-  
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Payment({ price }) {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext); 
+  const { user, setUser } = useContext(UserContext);
   const location = useLocation();
-
- 
 
   useEffect(() => {
     if (!user.UserName) {
@@ -28,33 +25,36 @@ export default function Payment({ price }) {
   const [isValidCvv, setIsValidCvv] = useState(true);
   const [nameOnCard, setNameOnCard] = useState("");
   const [monthOnCard, setMonthOnCard] = useState("");
-const SaveCreditCard = () =>
-{
-let card = {creditCardNumber: creditCardNumber, cvvCode: cvvCode, nameOnCard: nameOnCard,monthOnCard: monthOnCard}
-setUser({ ...user,card  });
-UpdateLocalStorage({ ...user, card });
-toast("User Information Saved", {theme: "dark", type:"success"});
-};
+  const SaveCreditCard = () => {
+    let card = {
+      creditCardNumber: creditCardNumber,
+      cvvCode: cvvCode,
+      nameOnCard: nameOnCard,
+      monthOnCard: monthOnCard,
+    };
+    setUser({ ...user, card });
+    UpdateLocalStorage({ ...user, card });
+    toast("Payment Successful :)", { theme: "dark", type: "success" });
+  };
 
-const UpdateLocalStorage = (element) => {
-let users = JSON.parse(localStorage.getItem("users")) || [];
-const targetIndex = users.findIndex(
-  (user) => user.UserName === element.UserName
-);
-users[targetIndex] = element;
-localStorage.setItem("users", JSON.stringify(users));
-};
+  const UpdateLocalStorage = (element) => {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const targetIndex = users.findIndex(
+      (user) => user.UserName === element.UserName
+    );
+    users[targetIndex] = element;
+    localStorage.setItem("users", JSON.stringify(users));
+  };
 
-const handleNameOnCardChange = (e) => {
-  const input = e.target.value;
-  setNameOnCard(input);
-};
+  const handleNameOnCardChange = (e) => {
+    const input = e.target.value;
+    setNameOnCard(input);
+  };
 
-const handleMonthOnCardChange = (e) => {
-  const input = e.target.value;
-  setMonthOnCard(input);
-};
-
+  const handleMonthOnCardChange = (e) => {
+    const input = e.target.value;
+    setMonthOnCard(input);
+  };
 
   const validateCreditCard = (input) => {
     const regex = /^[0-9]{16}$/;
@@ -91,11 +91,14 @@ const handleMonthOnCardChange = (e) => {
           <NavLink to="/">Log Out</NavLink>
         </li>
       </InnerNavBar>
-      <ToastContainer autoClose={1000} onClose={() => {
-  setTimeout(() => {
-    navigate("/personaldata");
-  }, 1700); // Adjust the delay (in milliseconds) as needed
-}} />
+      <ToastContainer
+        autoClose={1000}
+        onClose={() => {
+          setTimeout(() => {
+            navigate("/personaldata");
+          }, 1700); 
+        }}
+      />
 
       <div class="container">
         <h1>Payment</h1>
@@ -292,7 +295,9 @@ const handleMonthOnCardChange = (e) => {
                 <hr />
                 <div class="d-flex justify-content-between mb-4 small">
                   <span>TOTAL</span>{" "}
-                  <strong class="text-dark">$ {location.state.price-4.99}</strong>
+                  <strong class="text-dark">
+                    $ {location.state.price - 4.99}
+                  </strong>
                 </div>
                 <div class="form-check mb-1 small">
                   <input
@@ -318,7 +323,12 @@ const handleMonthOnCardChange = (e) => {
                     <a href="#/">Privacy Policy</a>
                   </label>
                 </div>
-                <button class="btn btn-primary w-100 mt-2" onClick={SaveCreditCard}>Place order</button>
+                <button
+                  class="btn btn-primary w-100 mt-2"
+                  onClick={SaveCreditCard}
+                >
+                  Place order
+                </button>
                 <Link to="/plans">
                   <button class="btn btn-primary w-100 mt-2">
                     Back to plan options

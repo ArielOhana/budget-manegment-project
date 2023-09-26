@@ -51,3 +51,39 @@
     margin: 1rem 0;
   }
 }
+
+@media screen and (max-width: 770px) {
+  .avatars {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .avatar {
+    margin: 1.3rem;
+  }
+
+  .UnChangeable-div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+  }
+
+  .UnChangeable-div-child {
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .avatars {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .avatars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
