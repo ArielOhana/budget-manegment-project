@@ -30,6 +30,8 @@ const SaveCreditCard = () =>
 let card = {creditCardNumber: creditCardNumber, cvvCode: cvvCode, nameOnCard: nameOnCard,monthOnCard: monthOnCard}
 setUser({ ...user,card  });
 UpdateLocalStorage({ ...user, card });
+alert("Order Confirmed")
+navigate("/personaldata")
 };
 
 const UpdateLocalStorage = (element) => {

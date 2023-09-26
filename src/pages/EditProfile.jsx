@@ -29,6 +29,7 @@ const EditProfile = () => {
     alert("User Information Saved");
     setUser({ ...user, ...data });
     UpdateLocalStorage({ ...user, ...data });
+    navigate("/personaldata")
   };
 
   const UpdateLocalStorage = (element) => {
