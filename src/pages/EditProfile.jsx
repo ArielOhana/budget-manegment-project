@@ -54,6 +54,7 @@ const EditProfile = () => {
     { id: 9, src: "../../images/avatar-images/avatar-9.png" },
     { id: 10, src: "../../images/avatar-images/avatar-10.png" },
     { id: 11, src: "../../images/avatar-images/avatar-11.png" },
+    { id: 12, src: "../../images/avatar-images/avatar-12.png" },
   ];
   const handleAvatarClick = (avatarId) => {
     setSelectedAvatar(avatarId);
