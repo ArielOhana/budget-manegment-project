@@ -11,6 +11,8 @@ export default function Payment({ price }) {
   const { user, setUser } = useContext(UserContext); // Retrieve context data here
   const location = useLocation();
 
+ 
+
   useEffect(() => {
     if (!user.UserName) {
       navigate("/error");
@@ -21,6 +23,34 @@ export default function Payment({ price }) {
   const [isValidCreditCard, setIsValidCreditCard] = useState(true);
   const [cvvCode, setCvvCode] = useState("");
   const [isValidCvv, setIsValidCvv] = useState(true);
+  const [nameOnCard, setNameOnCard] = useState("");
+  const [monthOnCard, setMonthOnCard] = useState("");
+const SaveCreditCard = () =>
+{
+let card = {creditCardNumber: creditCardNumber, cvvCode: cvvCode, nameOnCard: nameOnCard,monthOnCard: monthOnCard}
+setUser({ ...user,card  });
+UpdateLocalStorage({ ...user, card });
+};
+
+const UpdateLocalStorage = (element) => {
+let users = JSON.parse(localStorage.getItem("users")) || [];
+const targetIndex = users.findIndex(
+  (user) => user.UserName === element.UserName
+);
+users[targetIndex] = element;
+localStorage.setItem("users", JSON.stringify(users));
+};
+
+const handleNameOnCardChange = (e) => {
+  const input = e.target.value;
+  setNameOnCard(input);
+};
+
+const handleMonthOnCardChange = (e) => {
+  const input = e.target.value;
+  setMonthOnCard(input);
+};
+
 
   const validateCreditCard = (input) => {
     const regex = /^[0-9]{16}$/;
@@ -129,6 +159,7 @@ export default function Payment({ price }) {
                             type="text"
                             class="form-control"
                             placeholder=""
+                            onChange={handleNameOnCardChange}
                           />
                         </div>
                       </div>
@@ -136,9 +167,10 @@ export default function Payment({ price }) {
                         <div class="mb-3">
                           <label class="form-label">Expiry date</label>
                           <input
-                            type="text"
+                            type="month"
                             class="form-control"
                             placeholder="MM/YY"
+                            onChange={handleMonthOnCardChange}
                           />
                         </div>
                       </div>
@@ -276,7 +308,7 @@ export default function Payment({ price }) {
                     <a href="#/">Privacy Policy</a>
                   </label>
                 </div>
-                <button class="btn btn-primary w-100 mt-2">Place order</button>
+                <button class="btn btn-primary w-100 mt-2" onClick={SaveCreditCard}>Place order</button>
                 <Link to="/plans">
                   <button class="btn btn-primary w-100 mt-2">
                     Back to plan options
