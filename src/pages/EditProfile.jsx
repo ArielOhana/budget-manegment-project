@@ -12,18 +12,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 //NavBar Icons
-import avatar1 from "../../images/avatar-images/avatar-1.png";
-import avatar2 from "../../images/avatar-images/avatar-2.png";
-import avatar3 from "../../images/avatar-images/avatar-3.png";
-import avatar4 from "../../images/avatar-images/avatar-4.png";
-import avatar5 from "../../images/avatar-images/avatar-5.png";
-import avatar6 from "../../images/avatar-images/avatar-6.png";
-import avatar7 from "../../images/avatar-images/avatar-7.png";
-import avatar8 from "../../images/avatar-images/avatar-8.png";
-import avatar9 from "../../images/avatar-images/avatar-9.png";
-import avatar10 from "../../images/avatar-images/avatar-10.png";
-import avatar11 from "../../images/avatar-images/avatar-11.png";
-import avatar12 from "../../images/avatar-images/avatar-12.png";
+import avatar1 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-1.png`;
+import avatar2 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-2.png`;
+import avatar3 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-3.png`;
+import avatar4 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-4.png`;
+import avatar5 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-5.png`;
+import avatar6 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-6.png`;
+import avatar7 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-7.png`;
+import avatar8 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-8.png`;
+import avatar9 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-9.png`;
+import avatar10 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-10.png`;
+import avatar11 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-11.png`;
+import avatar12 from `${process.env.PUBLIC_URL}../../images/avatar-images/avatar-12.png`;
 
 const EditProfile = () => {
   const navigate = useNavigate();
