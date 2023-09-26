@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { createContext, useState } from "react";
-export const UserContext = createContext();
 import "../src/style/App.css";
+export const UserContext = createContext();
 
 //Route Imports
 import ContactUs from "./components/ContactUs";
@@ -15,7 +15,7 @@ import Payment from "./pages/Payment";
 import MyPlan from "./pages/MyPlan";
 import BudgetInfo from "./pages/BudgetInfo";
 
-function App() {
+export default function App() {
   const [user, setUser] = useState({});
   return (
     <div>
@@ -30,12 +30,9 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/plans" element={<MyPlan />} />
           <Route path="/budgetinfo" element={<BudgetInfo />} />
-
-        <Route path="*" element={<NoPage />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </UserContext.Provider>
     </div>
   );
 }
-
-export default App;
