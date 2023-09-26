@@ -9,7 +9,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserContext } from "../App";
 import { useContext } from "react";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  
 
 const Register = () => {
     const { user, setUser } = useContext(UserContext);
@@ -32,22 +34,22 @@ const Register = () => {
     );
 
     if (isExists) {
-      alert("User already exists");
+      toast("User already exists", {theme: "dark", type:"error"});
     } else {
         setUser(data);
       users.push(data);
       localStorage.setItem("users", JSON.stringify(users));
-      alert("User connected successfully");
       navigate("/editprofile")
     }
   }
   else{
-    alert("Please confirm password");
+    toast("Please confirm password", {theme: "dark", type:"warning"});
   }
 };
 
   return (
     <>
+    <ToastContainer/>
       <div id="Main">
         <div id="Register-Main">
           <Box

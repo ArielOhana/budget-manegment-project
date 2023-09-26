@@ -8,6 +8,10 @@ import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../App";
 import { useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  
+
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
@@ -34,7 +38,8 @@ const Login = () => {
     if (isExists) {
       navigate("/personaldata");
     } else {
-      alert("Something is wrong try again or sign up");
+      toast("Username or password invalid, try again", {theme: "dark", type:"error"});
+
     }
   };
 
@@ -46,6 +51,7 @@ const Login = () => {
   return (
     <>
       <div id="Main">
+      <ToastContainer />
         <div id="Register-Main">
           <Box
             component="form"

@@ -8,6 +8,9 @@ import TextField from "@mui/material/TextField";
 import InnerNavBar from "../components/InnerNavBar";
 import "../style/EditProfile.css";
 import Avatar from "@mui/material/Avatar";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -26,12 +29,11 @@ const EditProfile = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    alert("User Information Saved");
     setUser({ ...user, ...data });
     UpdateLocalStorage({ ...user, ...data });
-    navigate("/personaldata");
+    toast("User Information Saved", { theme: "dark", type: "success"});
+    
   };
-
   const UpdateLocalStorage = (element) => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
     const targetIndex = users.findIndex(
@@ -61,7 +63,6 @@ const EditProfile = () => {
     setUser({ ...user, avatarId: avatarId });
     UpdateLocalStorage({ ...user, avatarId: avatarId });
   };
-
   return (
     <>
       <InnerNavBar>
@@ -72,9 +73,14 @@ const EditProfile = () => {
           <NavLink to="/budgetinfo">Budget Info</NavLink>
         </li>
         <li>
-          <NavLink to="/">Log out</NavLink>
+          <NavLink to="/">Log Out</NavLink>
         </li>
       </InnerNavBar>
+      <ToastContainer autoClose={1000} onClose={() => {
+  setTimeout(() => {
+    navigate("/personaldata");
+  }, 1700); // Adjust the delay (in milliseconds) as needed
+}} />
       <div className="All-div">
         <div className="avatar-div">
           <div className="avatars">
@@ -119,7 +125,7 @@ const EditProfile = () => {
               <TextField
                 required
                 id="adress"
-                label="Adress"
+                label="Address"
                 defaultValue={user.adress ? user.adress : ""}
                 {...register("adress")}
                 sx={{ backgroundColor: "#FFFFFF", borderRadius: "7%" }}

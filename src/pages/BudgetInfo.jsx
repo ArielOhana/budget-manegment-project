@@ -9,7 +9,9 @@ import { useForm } from "react-hook-form";
 import AdjustCalendar from "../components/AdjustCalendar";
 import "../style/BudgetInfo.css"
 import Footer from "../components/Footer";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  
 const BudgetInfo = () => {
   const navigate = useNavigate();
   const date = new Date();
@@ -22,7 +24,7 @@ const BudgetInfo = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    alert("Saved!");
+    toast("Event Inserted", {theme: "dark", type:"success"});
     setUser({ ...user, ...data });
     UpdateLocalStorage({ ...user, ...data });
   };
@@ -35,7 +37,7 @@ const BudgetInfo = () => {
     localStorage.setItem("users", JSON.stringify(users));
   };
   const AddExpense = (data) => {
-    alert("Saved!");
+    toast("Event Inserted", {theme: "dark", type:"success"});
     if (!user.events) {
       user.events = [];
     }
@@ -93,7 +95,7 @@ function extractMonthFromDate(dateString) {
         Budget Info
       </h1>
       <br />
-
+<ToastContainer />
       <Box
         component="form"
         sx={{
