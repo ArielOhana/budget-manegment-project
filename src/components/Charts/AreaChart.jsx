@@ -71,7 +71,7 @@ function getMonthName(monthNumber) {
   ];
 
   if (monthNumber >= 1 && monthNumber <= 12) {
-    return months[monthNumber]; 
+    return months[monthNumber -1]; 
   } else {
     return "Invalid Month";
   }
