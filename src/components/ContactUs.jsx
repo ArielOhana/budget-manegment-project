@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import "../style/ContactUs.css";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -84,6 +85,7 @@ export default function ContactUs() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
