@@ -1,6 +1,7 @@
 import "../style/NavBar.css";
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import navbarIcon from "../../images/navbar-icon.png"
 
 export default function NavBar() {
   return (
@@ -9,7 +10,7 @@ export default function NavBar() {
         <div className="navbar-left">
           <Link to="/">
             <div className="navbar-left-img">
-              <img src="/images/navbar-icon.png" alt="Navbar icon" />
+              <img src={navbarIcon} alt="Navbar icon" />
             </div>
             <div className="navbar-left-title">
               <h2>BudgetBuddy</h2>

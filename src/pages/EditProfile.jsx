@@ -8,9 +8,22 @@ import TextField from "@mui/material/TextField";
 import InnerNavBar from "../components/InnerNavBar";
 import "../style/EditProfile.css";
 import Avatar from "@mui/material/Avatar";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-  
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//NavBar Icons
+import avatar1 from "../../images/avatar-images/avatar-1.png";
+import avatar2 from "../../images/avatar-images/avatar-2.png";
+import avatar3 from "../../images/avatar-images/avatar-3.png";
+import avatar4 from "../../images/avatar-images/avatar-4.png";
+import avatar5 from "../../images/avatar-images/avatar-5.png";
+import avatar6 from "../../images/avatar-images/avatar-6.png";
+import avatar7 from "../../images/avatar-images/avatar-7.png";
+import avatar8 from "../../images/avatar-images/avatar-8.png";
+import avatar9 from "../../images/avatar-images/avatar-9.png";
+import avatar10 from "../../images/avatar-images/avatar-10.png";
+import avatar11 from "../../images/avatar-images/avatar-11.png";
+import avatar12 from "../../images/avatar-images/avatar-12.png";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -31,8 +44,7 @@ const EditProfile = () => {
   const onSubmit = (data) => {
     setUser({ ...user, ...data });
     UpdateLocalStorage({ ...user, ...data });
-    toast("User Information Saved", { theme: "dark", type: "success"});
-    
+    toast("User Information Saved", { theme: "dark", type: "success" });
   };
   const UpdateLocalStorage = (element) => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -45,18 +57,18 @@ const EditProfile = () => {
 
   const [selectedAvatar, setSelectedAvatar] = useState(user.avatarId);
   const avatars = [
-    { id: 1, src: "../../images/avatar-images/avatar-1.png" },
-    { id: 2, src: "../../images/avatar-images/avatar-2.png" },
-    { id: 3, src: "../../images/avatar-images/avatar-3.png" },
-    { id: 4, src: "../../images/avatar-images/avatar-4.png" },
-    { id: 5, src: "../../images/avatar-images/avatar-5.png" },
-    { id: 6, src: "../../images/avatar-images/avatar-6.png" },
-    { id: 7, src: "../../images/avatar-images/avatar-7.png" },
-    { id: 8, src: "../../images/avatar-images/avatar-8.png" },
-    { id: 9, src: "../../images/avatar-images/avatar-9.png" },
-    { id: 10, src: "../../images/avatar-images/avatar-10.png" },
-    { id: 11, src: "../../images/avatar-images/avatar-11.png" },
-    { id: 12, src: "../../images/avatar-images/avatar-12.png" },
+    { id: 1, src: { avatar1 } },
+    { id: 2, src: { avatar2 } },
+    { id: 3, src: { avatar3 } },
+    { id: 4, src: { avatar4 } },
+    { id: 5, src: { avatar5 } },
+    { id: 6, src: { avatar6 } },
+    { id: 7, src: { avatar7 } },
+    { id: 8, src: { avatar8 } },
+    { id: 9, src: { avatar9 } },
+    { id: 10, src: { avatar10 } },
+    { id: 11, src: { avatar11 } },
+    { id: 12, src: { avatar12 } },
   ];
   const handleAvatarClick = (avatarId) => {
     setSelectedAvatar(avatarId);
@@ -76,11 +88,14 @@ const EditProfile = () => {
           <NavLink to="/">Log Out</NavLink>
         </li>
       </InnerNavBar>
-      <ToastContainer autoClose={1000} onClose={() => {
-  setTimeout(() => {
-    navigate("/personaldata");
-  }, 1700); // Adjust the delay (in milliseconds) as needed
-}} />
+      <ToastContainer
+        autoClose={1000}
+        onClose={() => {
+          setTimeout(() => {
+            navigate("/personaldata");
+          }, 1700); // Adjust the delay (in milliseconds) as needed
+        }}
+      />
       <div className="All-div">
         <div className="avatar-div">
           <div className="avatars">
