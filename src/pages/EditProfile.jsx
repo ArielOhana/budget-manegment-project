@@ -75,25 +75,8 @@ const EditProfile = () => {
         </li>
       </InnerNavBar>
       <div className="All-div">
-        <div
-          className="Avatar-div"
-          style={{
-            width: "100vw",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "2rem"
-          }}
-        >
-          <div
-            className="Avatars"
-            style={{
-              width: "60%",
-              display: "flex",
-              justifyContent: "space-evenly",
-            }}
-          >
+        <div className="avatar-div">
+          <div className="avatars">
             {avatars.map((avatar) => (
               <Avatar
                 key={avatar.id}

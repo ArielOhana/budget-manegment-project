@@ -1,27 +1,53 @@
+.avatar-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  margin: 2rem 0;
+}
+
+.avatars {
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
 .avatar {
-    opacity: 0.6;
-    transition: transform 0.3s ease; /* Add a smooth transition effect */
-  }
-  
-  .avatar:hover {
-    transform: scale(1.5); /* Scale the avatar on hover */
-    opacity: 1;
-  }
-  .avatar-clicked
-  {
-    transform: scale(1.5); /* Scale the avatar on hover */
-    opacity: 1;
+  opacity: 0.6;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.avatar-clicked {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+@media screen and (max-width: 770px) {
+  .avatars {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    justify-items: center;
   }
 
-@media screen and (max-width: 700px) {
-        .UnChangeable-div {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-            width: 100%;
-        }
+  .avatar {
+    margin: 1.3rem;
+  }
 
-        .UnChangeable-div-child  {
-            margin: 1rem 0;
-        }
-    }
+  .UnChangeable-div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+  }
+
+  .UnChangeable-div-child {
+    margin: 1rem 0;
+  }
+}
