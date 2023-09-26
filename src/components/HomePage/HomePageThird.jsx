@@ -6,13 +6,13 @@ import "../../style/HomePage.css";
 
 export default function HomePageThird() {
   const [leftRef, leftInView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
 
   const [rightRef, rightInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.6,
+    triggerOnce: false,
+    threshold: 0.5,
   });
 
   return (

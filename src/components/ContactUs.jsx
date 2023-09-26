@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import "../style/ContactUs.css";
 import { Link } from "react-router-dom";
+import "../style/ContactUs.css";
+import NavBar from "../components/NavBar";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -26,9 +27,11 @@ export default function ContactUs() {
 
   return (
     <div>
+      <NavBar />
       <div className="contact-us-container">
         <div className="contact-us-right">
           <form className="contact-form" onSubmit={handleSubmit}>
+            <h2>Contact Us</h2>
             <div className="inputs-container">
               <div className="text-field">
                 <TextField

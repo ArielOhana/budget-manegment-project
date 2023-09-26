@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin: 4rem;
 }
 
 .contact-us-right {
@@ -14,9 +14,9 @@
 }
 
 .contact-form {
-  box-shadow: 0 0 10px rgba(205, 78, 255, 0.5);
-  background-color: #ffffff; 
-  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  padding: 30px;
   border-radius: 10px;
   text-align: center;
   max-width: 400px;
@@ -48,5 +48,19 @@ Button {
 }
 
 Button:hover {
-  background-color: #5f4480; 
+  background-color: #5f4480;
+}
+
+@media screen and (max-width: 550px) {
+  .contact-us-container {
+    margin: 1rem;
+  }
+
+  .contact-form {
+    padding: 10px;
+  }
+  
+  #message {
+    height: 230px;
+  }
 }

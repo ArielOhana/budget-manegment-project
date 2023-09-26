@@ -8,7 +8,7 @@ import { UserContext } from "../App";
 
 export default function Payment({ price }) {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext); // Retrieve context data here
+  const { user, setUser } = useContext(UserContext); 
   const location = useLocation();
 
  
