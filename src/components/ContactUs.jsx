@@ -6,7 +6,7 @@ import "../style/ContactUs.css";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-export default function ContactUs() {
+export default function ContactUs({handleClose}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,6 +24,7 @@ export default function ContactUs() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    handleClose();
   };
 
   return (
@@ -71,14 +72,6 @@ export default function ContactUs() {
               >
                 Submit
               </Button>
-              <Link to="/">
-                <Button
-                  type="submit"
-                  sx={{ mt: 1, border: "2px solid", margin: "20px" }}
-                >
-                  Home
-                </Button>
-              </Link>
             </div>
           </form>
         </div>

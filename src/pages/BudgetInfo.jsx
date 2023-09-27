@@ -23,11 +23,6 @@ const BudgetInfo = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    toast("Event Inserted", {theme: "colored", type:"success"});
-    setUser({ ...user, ...data });
-    UpdateLocalStorage({ ...user, ...data });
-  };
   const UpdateLocalStorage = (element) => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
     const targetIndex = users.findIndex(
@@ -88,7 +83,7 @@ function extractMonthFromDate(dateString) {
           <NavLink to="/editprofile">Edit Profile</NavLink>
         </li>
         <li>
-          <NavLink to="/">Log out</NavLink>
+          <NavLink to="/">Log Out</NavLink>
         </li>
       </InnerNavBar>
       <h1 style={{ display: "flex", width: "100vw", justifyContent: "center" }}>
