@@ -1,9 +1,3 @@
-/* Colors - 
-black: #000;
-white: #fff;
-dark purple: #720e9e;
-light purple: #d0d0ff; */
-
 body {
   margin: 0;
   padding: 0;
@@ -31,8 +25,8 @@ body {
 
 .inner-navbar-right-container {
   display: flex;
-    align-items: center;
-    margin-right: 1rem;
+  align-items: center;
+  margin-right: 1rem;
 }
 
 .inner-navbar-right {
@@ -64,17 +58,30 @@ body {
   margin: 0 50px;
 }
 
+.mobile-dropdown-button {
+  display: none;
+}
+
 .inner-navbar a:hover {
   color: #d0d0ff;
 }
 
-@media screen and (max-width: 700px) {
+
+  /* Initial state of the dropdown */
+  .inner-navbar-right-dropdown {
+    max-height: 10;
+    overflow: hidden; /* Ensure content outside the max-height is hidden */
+  }
+
+@media screen and (max-width: 750px) {
   .inner-navbar-container {
     flex-direction: column;
     margin: 0;
     padding: 0;
     justify-content: center;
     align-items: center;
+    max-height: 65px;
+
   }
 
   .inner-navbar img {
@@ -86,12 +93,11 @@ body {
   }
 
   .inner-navbar-right {
-    margin: 1rem 0 .5rem 0;
+    margin: 1rem 0 0.5rem 0;
     padding: 0;
   }
 
   .inner-navbar-left {
-    margin: 1rem 0 0 0;
     padding: 0;
   }
 
@@ -104,9 +110,56 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 65px;
   }
 
   .inner-navbar li {
-    margin: 0 .7rem;
+    margin: 0 0.7rem;
+  }
+
+  .inner-navbar-right-container {
+    display: none;
+  }
+
+  .mobile-dropdown-button {
+    display: block;
+    right: 1rem;
+    margin-top: 0.5rem;
+    position: absolute;
+    scale: 1.5;
+  }
+
+
+
+/* Styles for the open state of the dropdown */
+.inner-navbar-container.open {
+  max-height: 220px; /* Adjust the height as needed */
+  transition: max-height 0.6s ease-in;
+}
+.inner-navbar-right-dropdown.open {
+  max-height: 220px; /* Adjust the height as needed */
+  transition: max-height 0.6s ease-in;
+}
+
+  .inner-navbar-right-dropdown a {
+    padding: 1rem 0 0.5rem 0;
+    text-align: center;
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .inner-navbar-right-dropdown ul {
+    padding: 0;
+  }
+
+  .inner-navbar-right-dropdown li {
+    list-style: none;
+  }
+
+  .inner-navbar-right-dropdown a:hover {
+    background-color: #d0d0ff;
   }
 }

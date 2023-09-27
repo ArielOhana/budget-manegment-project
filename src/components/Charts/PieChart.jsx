@@ -46,7 +46,7 @@ export default function PieChart() {
           newData = [["Outcome", "Amount"], [`Monthly Income: ${Number(user?.monthlyincome) + positivevalues}`, Number(user?.monthlyincome )+positivevalues], [`Monthly Outcome: ${totalcost}`, Number(totalcost)]];
         }
         setData(newData);
-      }, 500); // Simulate loading time
+      }, 500); 
     }
   }, [user, navigate]);
   function extractMonthFromDate(dateString) {

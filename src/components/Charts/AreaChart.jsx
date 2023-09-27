@@ -14,13 +14,12 @@ export default function AreaChart() {
     if (!user.UserName) {
       navigate("/error");
     } else {
-      // Simulate data loading
       setTimeout(() => {
         setIsLoading(false);
         let totalcost = 0;
         let newData = CalcMonths();
         setData(newData);
-      }, 500); // Simulate loading time
+      }, 500); 
     }
   }, [user, navigate]);
   function extractMonthFromDate(dateString) {

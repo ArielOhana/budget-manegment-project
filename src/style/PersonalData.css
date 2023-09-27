@@ -11,11 +11,22 @@
 }
 
 .pie-area-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-@media screen and (max-width: 700px) {
+.budget-pie-chart-container {
+    width: 100%;
+}
+
+.budget-area-chart-container {
+    width: 100%;
+}
+
+@media screen and (max-width: 1500px) {
     .pie-area-wrapper {
         display: flex;
         flex-direction: column;
