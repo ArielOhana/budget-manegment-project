@@ -8,6 +8,7 @@ import navbarIcon from "../../images/navbar-icon.png";
 
 export default function InnerNavBar({ children }) {
   const { user, setUser } = useContext(UserContext);
+  const currentAvatar = `../../images/avatar-images/avatar-${user.avatarId}.png`;
 
   return (
     <div className="inner-navbar-container">
@@ -24,9 +25,10 @@ export default function InnerNavBar({ children }) {
         </div>
         <div className="inner-navbar-right-container">
           <div className="inner-navbar-right">{children}</div>
-         <Link to="/editprofile"> <Avatar
-            src={`../../images/avatar-images/avatar-${user.avatarId}.png`}
-          /></Link>
+          <Link to="/editprofile">
+            {" "}
+            <Avatar src={String(currentAvatar)} />
+          </Link>
         </div>
       </ul>
     </div>
