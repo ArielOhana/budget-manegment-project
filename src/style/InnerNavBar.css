@@ -158,8 +158,4 @@ body {
   .inner-navbar-right-dropdown li {
     list-style: none;
   }
-
-  .inner-navbar-right-dropdown a:hover {
-    background-color: #d0d0ff;
-  }
 }

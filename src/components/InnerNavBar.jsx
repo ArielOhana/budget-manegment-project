@@ -75,15 +75,7 @@ export default function InnerNavBar({ children }) {
       {mobileMenuOpen && (
         <div className={`inner-navbar-right-dropdown ${mobileMenuOpen ? "open" : ""}`} >
           <ul>
-            <li>
-              <Link to="/personaldata">Personal Data</Link>
-            </li>
-            <li>
-              <Link to="/budgetinfo">Budget Info</Link>
-            </li>
-            <li>
-              <Link to="/">Log Out</Link>
-            </li>
+          {children}
           </ul>
         </div>
       )}
