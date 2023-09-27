@@ -6,9 +6,36 @@ import { useContext } from "react";
 import Avatar from "@mui/material/Avatar";
 import navbarIcon from "../../images/navbar-icon.png";
 
+import avatar1 from "../../images/avatar-images/avatar-1.png"
+import avatar2 from "../../images/avatar-images/avatar-2.png"
+import avatar3 from "../../images/avatar-images/avatar-3.png"
+import avatar4 from "../../images/avatar-images/avatar-4.png"
+import avatar5 from "../../images/avatar-images/avatar-5.png"
+import avatar6 from "../../images/avatar-images/avatar-6.png"
+import avatar7 from "../../images/avatar-images/avatar-7.png"
+import avatar8 from "../../images/avatar-images/avatar-8.png"
+import avatar9 from "../../images/avatar-images/avatar-9.png"
+import avatar10 from "../../images/avatar-images/avatar-10.png"
+import avatar11 from "../../images/avatar-images/avatar-11.png"
+import avatar12 from "../../images/avatar-images/avatar-12.png"
+
+
 export default function InnerNavBar({ children }) {
   const { user, setUser } = useContext(UserContext);
-  const currentAvatar = `../../images/avatar-images/avatar-${user.avatarId}.png`
+  const avatars = [
+    { id: 1, src: String(avatar1)},
+    { id: 2, src: String(avatar2)}, 
+    { id: 3, src: String(avatar3) },
+    { id: 4, src: String(avatar4) },
+    { id: 5, src: String(avatar5) },
+    { id: 6, src: String(avatar6) },
+    { id: 7, src: String(avatar7) },
+    { id: 8, src: String(avatar8) },
+    { id: 9, src: String(avatar9) },
+    { id: 10, src: String(avatar10) },
+    { id: 11, src: String(avatar11)},
+    { id: 12, src: String(avatar12) }
+  ];
   return (
     <div className="inner-navbar-container">
       <ul className="inner-navbar">
@@ -26,7 +53,7 @@ export default function InnerNavBar({ children }) {
           <div className="inner-navbar-right">{children}</div>
           <Link to="/editprofile">
             {" "}
-            <Avatar src={currentAvatar} />
+            <Avatar alt={String(avatar1)}  src={String(avatars[user.avatarId-1]?.src)} />
           </Link>
         </div>
       </ul>
