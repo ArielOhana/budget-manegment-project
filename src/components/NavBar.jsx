@@ -18,6 +18,7 @@ const style = {
 
 export default function NavBar() {
   const [open, setOpen] = React.useState(false);
+  const autoClose = () => setOpen(false);;
   const handleOpen = () => setOpen(true);
   const handleClose = () => {setOpen(false);     toast("Message sent", {theme: "colored", type:"success"});
 }
@@ -41,7 +42,7 @@ export default function NavBar() {
           <Link onClick={handleOpen}>Contact Us</Link>
 <Modal
   open={open}
-  onClose={handleClose}
+  onClose={autoClose}
 >
   <Box sx={style}>
      <ContactUs handleClose={handleClose}/>
