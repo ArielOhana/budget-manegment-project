@@ -5,10 +5,10 @@ import { UserContext } from "../App";
 import { useContext } from "react";
 import Avatar from "@mui/material/Avatar";
 import navbarIcon from "../../images/navbar-icon.png";
+import currentAvatar from `../../images/avatar-images/avatar-`
 
 export default function InnerNavBar({ children }) {
   const { user, setUser } = useContext(UserContext);
-  const currentAvatar = `../../images/avatar-images/avatar-${user.avatarId}.png`;
 
   return (
     <div className="inner-navbar-container">
@@ -27,7 +27,7 @@ export default function InnerNavBar({ children }) {
           <div className="inner-navbar-right">{children}</div>
           <Link to="/editprofile">
             {" "}
-            <Avatar src={String(currentAvatar)} />
+            <Avatar src={String(`${currentAvatar}${user.avatarId}.png`)} />
           </Link>
         </div>
       </ul>
