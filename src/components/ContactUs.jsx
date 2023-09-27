@@ -27,9 +27,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div>
-      <NavBar />
-      <div className="contact-us-container">
+
         <div className="contact-us-right">
           <form className="contact-form" onSubmit={handleSubmit}>
             <h2>Contact Us</h2>
@@ -84,8 +82,6 @@ export default function ContactUs() {
             </div>
           </form>
         </div>
-      </div>
-      <Footer />
-    </div>
+
   );
 }
