@@ -34,7 +34,7 @@ const Register = () => {
     );
 
     if (isExists) {
-      toast("User already exists", {theme: "dark", type:"error"});
+      toast("User already exists", {theme: "colored", type:"error"});
     } else {
         setUser(data);
       users.push(data);
@@ -43,7 +43,7 @@ const Register = () => {
     }
   }
   else{
-    toast("Please confirm password", {theme: "dark", type:"warning"});
+    toast("Please confirm password", {theme: "colored", type:"warning"});
   }
 };
 

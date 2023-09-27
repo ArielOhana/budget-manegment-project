@@ -38,7 +38,7 @@ const Login = () => {
     if (isExists) {
       navigate("/personaldata");
     } else {
-      toast("Username or password invalid, try again", {theme: "dark", type:"error"});
+      toast("Username or password invalid, try again", {theme: "colored", type:"error"});
 
     }
   };

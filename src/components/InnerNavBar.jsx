@@ -24,9 +24,9 @@ export default function InnerNavBar({ children }) {
         </div>
         <div className="inner-navbar-right-container">
           <div className="inner-navbar-right">{children}</div>
-          <Avatar
+         <Link to="/editprofile"> <Avatar
             src={`../../images/avatar-images/avatar-${user.avatarId}.png`}
-          />
+          /></Link>
         </div>
       </ul>
     </div>

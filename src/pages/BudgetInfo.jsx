@@ -24,7 +24,7 @@ const BudgetInfo = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    toast("Event Inserted", {theme: "dark", type:"success"});
+    toast("Event Inserted", {theme: "colored", type:"success"});
     setUser({ ...user, ...data });
     UpdateLocalStorage({ ...user, ...data });
   };
@@ -37,7 +37,7 @@ const BudgetInfo = () => {
     localStorage.setItem("users", JSON.stringify(users));
   };
   const AddExpense = (data) => {
-    toast("Event Inserted", {theme: "dark", type:"success"});
+    toast("Event Inserted", {theme: "colored", type:"success"});
     if (!user.events) {
       user.events = [];
     }
